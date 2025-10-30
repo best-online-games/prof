@@ -5117,16 +5117,98 @@ declare namespace $.$$ {
 
 declare namespace $ {
 
-	type $mol_list__rows_bog_prof_app_prof_1 = $mol_type_enforce<
-		ReturnType< $bog_prof_app_prof['prof_rows'] >
+	type $mol_gallery__style_mol_gallery_1 = $mol_type_enforce<
+		({ 
+			'flexGrow': ReturnType< $mol_gallery['side_size'] >,
+		}) 
 		,
-		ReturnType< $mol_list['rows'] >
+		ReturnType< $mol_gallery['style'] >
 	>
-	export class $bog_prof_app_prof extends $mol_page {
-		prof_rows( ): readonly(any)[]
-		Results( ): $mol_list
-		title( ): string
-		body( ): readonly(any)[]
+	type $mol_gallery__items_mol_gallery_2 = $mol_type_enforce<
+		ReturnType< $mol_gallery['side_items'] >
+		,
+		ReturnType< $mol_gallery['items'] >
+	>
+	export class $mol_gallery extends $mol_view {
+		items( ): readonly($mol_view)[]
+		side_size( id: any): string
+		side_items( id: any): readonly($mol_view)[]
+		sub( ): ReturnType< $mol_gallery['items'] >
+		Side( id: any): $mol_gallery
+	}
+	
+}
+
+//# sourceMappingURL=gallery.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_gallery extends $.$mol_gallery {
+        sub(): readonly $mol_view[];
+        side_items(id: number): $mol_view[];
+        side_size(id: number): string;
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
+
+	type $mol_page__title_bog_prof_app_prof_1 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_page['title'] >
+	>
+	type $mol_page__body_bog_prof_app_prof_2 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_page['body'] >
+	>
+	type $mol_page__title_bog_prof_app_prof_3 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_page['title'] >
+	>
+	type $mol_page__body_bog_prof_app_prof_4 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_page['body'] >
+	>
+	type $mol_page__title_bog_prof_app_prof_5 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_page['title'] >
+	>
+	type $mol_page__body_bog_prof_app_prof_6 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_page['body'] >
+	>
+	type $mol_page__title_bog_prof_app_prof_7 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_page['title'] >
+	>
+	type $mol_page__body_bog_prof_app_prof_8 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_page['body'] >
+	>
+	export class $bog_prof_app_prof extends $mol_book2_catalog {
+		All_gallery( ): $mol_gallery
+		All( ): $mol_page
+		Dev_gallery( ): $mol_gallery
+		Development( ): $mol_page
+		Design_gallery( ): $mol_gallery
+		Design( ): $mol_page
+		Devops_gallery( ): $mol_gallery
+		DevOps( ): $mol_page
+		menu_title( ): string
+		spreads( ): ({ 
+			'all': ReturnType< $bog_prof_app_prof['All'] >,
+			'development': ReturnType< $bog_prof_app_prof['Development'] >,
+			'design': ReturnType< $bog_prof_app_prof['Design'] >,
+			'devops': ReturnType< $bog_prof_app_prof['DevOps'] >,
+		}) 
 	}
 	
 }
@@ -5134,12 +5216,6 @@ declare namespace $ {
 //# sourceMappingURL=prof.view.tree.d.ts.map
 declare namespace $.$$ {
     class $bog_prof_app_prof extends $.$bog_prof_app_prof {
-        professions_by_category(): {
-            readonly ИТ: readonly ["Разработчик", "Тестировщик", "Аналитик", "DevOps"];
-            readonly Дизайн: readonly ["UI/UX дизайнер", "Графический дизайнер"];
-            readonly Маркетинг: readonly ["Маркетолог", "SMM-менеджер"];
-        };
-        prof_rows(): readonly any[];
     }
 }
 

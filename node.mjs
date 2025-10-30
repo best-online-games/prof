@@ -12479,23 +12479,140 @@ var $;
 })($ || ($ = {}));
 
 ;
-	($.$bog_prof_app_prof) = class $bog_prof_app_prof extends ($.$mol_page) {
-		prof_rows(){
+	($.$mol_gallery) = class $mol_gallery extends ($.$mol_view) {
+		items(){
 			return [];
 		}
-		Results(){
-			const obj = new this.$.$mol_list();
-			(obj.rows) = () => ((this.prof_rows()));
+		side_size(id){
+			return "1";
+		}
+		side_items(id){
+			return [];
+		}
+		sub(){
+			return (this.items());
+		}
+		Side(id){
+			const obj = new this.$.$mol_gallery();
+			(obj.style) = () => ({"flexGrow": (this.side_size(id))});
+			(obj.items) = () => ((this.side_items(id)));
 			return obj;
 		}
-		title(){
-			return "Профессии";
+	};
+	($mol_mem_key(($.$mol_gallery.prototype), "Side"));
+
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_gallery extends $.$mol_gallery {
+            sub() {
+                const items = this.items();
+                if (items.length <= 3)
+                    return items;
+                return [
+                    this.Side(0),
+                    this.Side(1),
+                ];
+            }
+            side_items(id) {
+                const items = this.items();
+                const middle = items.length % 2
+                    ? Math.ceil(items.length / 3)
+                    : items.length / 2;
+                return id
+                    ? items.slice(middle)
+                    : items.slice(0, middle);
+            }
+            side_size(id) {
+                return String(this.side_items(id).length);
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $mol_gallery.prototype, "sub", null);
+        __decorate([
+            $mol_mem_key
+        ], $mol_gallery.prototype, "side_items", null);
+        $$.$mol_gallery = $mol_gallery;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/gallery/gallery.view.css", "[mol_gallery] {\n\tflex-wrap: wrap;\n\tflex: 1 1 auto;\n\talign-items: stretch;\n    align-content: stretch;\n}\n");
+})($ || ($ = {}));
+
+;
+	($.$bog_prof_app_prof) = class $bog_prof_app_prof extends ($.$mol_book2_catalog) {
+		All_gallery(){
+			const obj = new this.$.$mol_gallery();
+			return obj;
 		}
-		body(){
-			return [(this.Results())];
+		All(){
+			const obj = new this.$.$mol_page();
+			(obj.title) = () => ((this.$.$mol_locale.text("$bog_prof_app_prof_All_title")));
+			(obj.body) = () => ([(this.All_gallery())]);
+			return obj;
+		}
+		Dev_gallery(){
+			const obj = new this.$.$mol_gallery();
+			return obj;
+		}
+		Development(){
+			const obj = new this.$.$mol_page();
+			(obj.title) = () => ((this.$.$mol_locale.text("$bog_prof_app_prof_Development_title")));
+			(obj.body) = () => ([(this.Dev_gallery())]);
+			return obj;
+		}
+		Design_gallery(){
+			const obj = new this.$.$mol_gallery();
+			return obj;
+		}
+		Design(){
+			const obj = new this.$.$mol_page();
+			(obj.title) = () => ((this.$.$mol_locale.text("$bog_prof_app_prof_Design_title")));
+			(obj.body) = () => ([(this.Design_gallery())]);
+			return obj;
+		}
+		Devops_gallery(){
+			const obj = new this.$.$mol_gallery();
+			return obj;
+		}
+		DevOps(){
+			const obj = new this.$.$mol_page();
+			(obj.title) = () => ((this.$.$mol_locale.text("$bog_prof_app_prof_DevOps_title")));
+			(obj.body) = () => ([(this.Devops_gallery())]);
+			return obj;
+		}
+		menu_title(){
+			return (this.$.$mol_locale.text("$bog_prof_app_prof_menu_title"));
+		}
+		spreads(){
+			return {
+				"all": (this.All()), 
+				"development": (this.Development()), 
+				"design": (this.Design()), 
+				"devops": (this.DevOps())
+			};
 		}
 	};
-	($mol_mem(($.$bog_prof_app_prof.prototype), "Results"));
+	($mol_mem(($.$bog_prof_app_prof.prototype), "All_gallery"));
+	($mol_mem(($.$bog_prof_app_prof.prototype), "All"));
+	($mol_mem(($.$bog_prof_app_prof.prototype), "Dev_gallery"));
+	($mol_mem(($.$bog_prof_app_prof.prototype), "Development"));
+	($mol_mem(($.$bog_prof_app_prof.prototype), "Design_gallery"));
+	($mol_mem(($.$bog_prof_app_prof.prototype), "Design"));
+	($mol_mem(($.$bog_prof_app_prof.prototype), "Devops_gallery"));
+	($mol_mem(($.$bog_prof_app_prof.prototype), "DevOps"));
 
 
 ;
@@ -12508,25 +12625,7 @@ var $;
     var $$;
     (function ($$) {
         class $bog_prof_app_prof extends $.$bog_prof_app_prof {
-            professions_by_category() {
-                return {
-                    ИТ: ['Разработчик', 'Тестировщик', 'Аналитик', 'DevOps'],
-                    Дизайн: ['UI/UX дизайнер', 'Графический дизайнер'],
-                    Маркетинг: ['Маркетолог', 'SMM-менеджер'],
-                };
-            }
-            prof_rows() {
-                const ids = this.professions_by_category();
-                console.log(ids);
-                return ['Разработчик', 'Тестировщик', 'Аналитик', 'DevOps'];
-            }
         }
-        __decorate([
-            $mol_mem
-        ], $bog_prof_app_prof.prototype, "professions_by_category", null);
-        __decorate([
-            $mol_mem
-        ], $bog_prof_app_prof.prototype, "prof_rows", null);
         $$.$bog_prof_app_prof = $bog_prof_app_prof;
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));

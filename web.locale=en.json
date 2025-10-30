@@ -1,5 +1,10 @@
 {
 	"$bog_prof_app_menu_title": "VibeJobs ",
+	"$bog_prof_app_prof_All_title": "All Professions",
+	"$bog_prof_app_prof_Design_title": "Design",
+	"$bog_prof_app_prof_DevOps_title": "DevOps",
+	"$bog_prof_app_prof_Development_title": "Development",
+	"$bog_prof_app_prof_menu_title": "Professions",
 	"$bog_prof_app_settings_Install_button_title": "Add to Home Screen",
 	"$bog_prof_app_settings_Install_labeler_title": "Install app",
 	"$bog_prof_app_settings_Language_labeler_title": "Interface language",

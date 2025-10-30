@@ -263,6 +263,7 @@
     "$mol_offline_install",
     "$mol_offline",
     "$bog_prof_app_prof",
+    "$mol_gallery",
     "$bog_prof_app_settings",
     "$mol_locale_select",
     "$mol_select",
