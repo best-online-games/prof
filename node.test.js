@@ -13440,6 +13440,27 @@ var $;
 			]);
 			return obj;
 		}
+		loading_status(){
+			return null;
+		}
+		Status(){
+			const obj = new this.$.$mol_status();
+			(obj.status) = () => ((this.loading_status()));
+			return obj;
+		}
+		stats_message(){
+			return "";
+		}
+		Stats_text(){
+			const obj = new this.$.$mol_text();
+			(obj.text) = () => ((this.stats_message()));
+			return obj;
+		}
+		Stats_bar(){
+			const obj = new this.$.$mol_bar();
+			(obj.sub) = () => ([(this.Stats_text())]);
+			return obj;
+		}
 		vacancy_rows(){
 			return [];
 		}
@@ -13482,7 +13503,12 @@ var $;
 			return [(this.Tools())];
 		}
 		body(){
-			return [(this.Results()), (this.Empty())];
+			return [
+				(this.Status()), 
+				(this.Stats_bar()), 
+				(this.Results()), 
+				(this.Empty())
+			];
 		}
 		foot(){
 			return [(this.Credits())];
@@ -13495,6 +13521,9 @@ var $;
 	($mol_mem(($.$bog_prof_app_vaka.prototype), "Search_icon"));
 	($mol_mem(($.$bog_prof_app_vaka.prototype), "Search"));
 	($mol_mem(($.$bog_prof_app_vaka.prototype), "Tools"));
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "Status"));
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "Stats_text"));
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "Stats_bar"));
 	($mol_mem(($.$bog_prof_app_vaka.prototype), "Results"));
 	($mol_mem(($.$bog_prof_app_vaka.prototype), "Empty_icon"));
 	($mol_mem(($.$bog_prof_app_vaka.prototype), "Empty_message"));
@@ -13782,17 +13811,20 @@ var $;
             area_id() {
                 return AREA_MAP[this.area_name()] ?? '113';
             }
-            search_trigger(next) {
+            loading_status(next) {
+                return next ?? null;
+            }
+            update_trigger(next) {
                 return next ?? 0;
             }
             search(next) {
                 if (next !== undefined) {
-                    this.search_trigger(this.search_trigger() + 1);
+                    this.update_trigger(this.update_trigger() + 1);
                 }
                 return next;
             }
             vacancies_data() {
-                this.search_trigger();
+                this.update_trigger();
                 const query = this.query();
                 const area = this.area_id();
                 if (!query || !query.trim()) {
@@ -13806,15 +13838,20 @@ var $;
                 });
                 const url = `https://api.hh.ru/vacancies?${params.toString()}`;
                 try {
-                    const response = this.$.$mol_fetch.json(url, {
-                        headers: {
-                            'User-Agent': 'VibeJobs/1.0 (bog.prof.app)',
-                        },
-                    });
+                    this.loading_status('⏳ Загрузка...');
+                    const response = this.$.$mol_fetch.json(url);
+                    console.log(`🌐 Загружено ${response.items.length} вакансий с API HH.ru`);
+                    this.loading_status(null);
                     return response;
                 }
                 catch (error) {
-                    console.error('Ошибка загрузки вакансий:', error);
+                    if (error && typeof error === 'object' && 'message' in error) {
+                        const errMsg = error.message || '';
+                        if (!errMsg.includes('aborted')) {
+                            console.error('❌ Ошибка загрузки с API:', errMsg);
+                        }
+                    }
+                    this.loading_status(null);
                     return { items: [], found: 0, pages: 0, page: 0, per_page: 0 };
                 }
             }
@@ -13826,7 +13863,7 @@ var $;
                     return data.items.map(v => v.id);
                 }
                 catch (error) {
-                    console.error('Ошибка при загрузке вакансий:', error);
+                    console.error('❌ Ошибка при загрузке вакансий:', error);
                     return [];
                 }
             }
@@ -13838,7 +13875,7 @@ var $;
                     return data.items.find(v => v.id === id) ?? null;
                 }
                 catch (error) {
-                    console.error('Ошибка при получении вакансии:', error);
+                    console.error('❌ Ошибка при получении вакансии:', error);
                     return null;
                 }
             }
@@ -13862,6 +13899,12 @@ var $;
                 }
                 return '';
             }
+            stats_message() {
+                const data = this.vacancies_data();
+                if (!data || data.items.length === 0)
+                    return '';
+                return `📊 Найдено: ${data.found.toLocaleString('ru-RU')} • Показано: ${data.items.length}`;
+            }
         }
         __decorate([
             $mol_mem
@@ -13874,7 +13917,10 @@ var $;
         ], $bog_prof_app_vaka.prototype, "area_id", null);
         __decorate([
             $mol_mem
-        ], $bog_prof_app_vaka.prototype, "search_trigger", null);
+        ], $bog_prof_app_vaka.prototype, "loading_status", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_vaka.prototype, "update_trigger", null);
         __decorate([
             $mol_mem
         ], $bog_prof_app_vaka.prototype, "vacancies_data", null);
@@ -13893,6 +13939,9 @@ var $;
         __decorate([
             $mol_mem
         ], $bog_prof_app_vaka.prototype, "empty_message", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_vaka.prototype, "stats_message", null);
         $$.$bog_prof_app_vaka = $bog_prof_app_vaka;
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));

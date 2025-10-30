@@ -6099,27 +6099,42 @@ declare namespace $ {
 		,
 		ReturnType< $mol_bar['sub'] >
 	>
-	type $mol_list__rows_bog_prof_app_vaka_9 = $mol_type_enforce<
+	type $mol_status__status_bog_prof_app_vaka_9 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_vaka['loading_status'] >
+		,
+		ReturnType< $mol_status['status'] >
+	>
+	type $mol_text__text_bog_prof_app_vaka_10 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_vaka['stats_message'] >
+		,
+		ReturnType< $mol_text['text'] >
+	>
+	type $mol_bar__sub_bog_prof_app_vaka_11 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_bar['sub'] >
+	>
+	type $mol_list__rows_bog_prof_app_vaka_12 = $mol_type_enforce<
 		ReturnType< $bog_prof_app_vaka['vacancy_rows'] >
 		,
 		ReturnType< $mol_list['rows'] >
 	>
-	type $mol_text__text_bog_prof_app_vaka_10 = $mol_type_enforce<
+	type $mol_text__text_bog_prof_app_vaka_13 = $mol_type_enforce<
 		ReturnType< $bog_prof_app_vaka['empty_message'] >
 		,
 		ReturnType< $mol_text['text'] >
 	>
-	type $mol_view__sub_bog_prof_app_vaka_11 = $mol_type_enforce<
+	type $mol_view__sub_bog_prof_app_vaka_14 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_link__uri_bog_prof_app_vaka_12 = $mol_type_enforce<
+	type $mol_link__uri_bog_prof_app_vaka_15 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_link['uri'] >
 	>
-	type $mol_link__title_bog_prof_app_vaka_13 = $mol_type_enforce<
+	type $mol_link__title_bog_prof_app_vaka_16 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_link['title'] >
@@ -6132,6 +6147,11 @@ declare namespace $ {
 		Search_icon( ): $mol_icon_magnify
 		Search( ): $mol_button_minor
 		Tools( ): $mol_bar
+		loading_status( ): any
+		Status( ): $mol_status
+		stats_message( ): string
+		Stats_text( ): $mol_text
+		Stats_bar( ): $mol_bar
 		vacancy_rows( ): readonly(any)[]
 		Results( ): $mol_list
 		Empty_icon( ): $mol_icon_information_outline
@@ -6190,7 +6210,8 @@ declare namespace $.$$ {
         query(next?: string): string;
         area_name(next?: string): string;
         area_id(): string;
-        search_trigger(next?: number): number;
+        loading_status(next?: any): any;
+        update_trigger(next?: number): number;
         search(next?: any): any;
         vacancies_data(): HHSearchResponse | null;
         vacancy_ids(): string[];
@@ -6198,6 +6219,7 @@ declare namespace $.$$ {
         vacancy_rows(): readonly any[];
         Row(id: string): $bog_prof_app_vaka_item;
         empty_message(): string;
+        stats_message(): string;
     }
     export {};
 }
