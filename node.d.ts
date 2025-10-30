@@ -5292,25 +5292,66 @@ declare namespace $ {
 
 declare namespace $ {
 
-	type $mol_page__title_bog_prof_app_prof_1 = $mol_type_enforce<
+	type $mol_view__sub_mol_card_1 = $mol_type_enforce<
+		ReturnType< $mol_card['content'] >
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_view__minimal_height_mol_card_2 = $mol_type_enforce<
+		number
+		,
+		ReturnType< $mol_view['minimal_height'] >
+	>
+	type $mol_view__sub_mol_card_3 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	export class $mol_card extends $mol_list {
+		status( ): string
+		content( ): readonly($mol_view_content)[]
+		Content( ): $mol_view
+		status_text( ): ReturnType< $mol_card['status'] >
+		Status( ): $mol_view
+		attr( ): ({ 
+			'mol_card_status_type': ReturnType< $mol_card['status'] >,
+		})  & ReturnType< $mol_list['attr'] >
+		rows( ): readonly($mol_view)[]
+	}
+	
+}
+
+//# sourceMappingURL=card.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_card extends $.$mol_card {
+        rows(): readonly $mol_view[];
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
+
+	type $mol_gallery__items_bog_prof_app_prof_1 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['All_gallery_items'] >
+		,
+		ReturnType< $mol_gallery['items'] >
+	>
+	type $mol_page__title_bog_prof_app_prof_2 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_page['title'] >
 	>
-	type $mol_page__body_bog_prof_app_prof_2 = $mol_type_enforce<
+	type $mol_page__body_bog_prof_app_prof_3 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_page['body'] >
 	>
-	type $mol_page__title_bog_prof_app_prof_3 = $mol_type_enforce<
-		string
+	type $mol_gallery__items_bog_prof_app_prof_4 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['Dev_gallery_items'] >
 		,
-		ReturnType< $mol_page['title'] >
-	>
-	type $mol_page__body_bog_prof_app_prof_4 = $mol_type_enforce<
-		readonly(any)[]
-		,
-		ReturnType< $mol_page['body'] >
+		ReturnType< $mol_gallery['items'] >
 	>
 	type $mol_page__title_bog_prof_app_prof_5 = $mol_type_enforce<
 		string
@@ -5322,32 +5363,108 @@ declare namespace $ {
 		,
 		ReturnType< $mol_page['body'] >
 	>
-	type $mol_page__title_bog_prof_app_prof_7 = $mol_type_enforce<
+	type $mol_gallery__items_bog_prof_app_prof_7 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['Design_gallery_items'] >
+		,
+		ReturnType< $mol_gallery['items'] >
+	>
+	type $mol_page__title_bog_prof_app_prof_8 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_page['title'] >
 	>
-	type $mol_page__body_bog_prof_app_prof_8 = $mol_type_enforce<
+	type $mol_page__body_bog_prof_app_prof_9 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_page['body'] >
 	>
+	type $mol_gallery__items_bog_prof_app_prof_10 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['Devops_gallery_items'] >
+		,
+		ReturnType< $mol_gallery['items'] >
+	>
+	type $mol_page__title_bog_prof_app_prof_11 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_page['title'] >
+	>
+	type $mol_page__body_bog_prof_app_prof_12 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_page['body'] >
+	>
+	type $mol_dimmer__title_bog_prof_app_prof_13 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['all_title'] >
+		,
+		ReturnType< $mol_dimmer['title'] >
+	>
+	type $mol_dimmer__title_bog_prof_app_prof_14 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['dev_title'] >
+		,
+		ReturnType< $mol_dimmer['title'] >
+	>
+	type $mol_dimmer__title_bog_prof_app_prof_15 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['design_title'] >
+		,
+		ReturnType< $mol_dimmer['title'] >
+	>
+	type $mol_dimmer__title_bog_prof_app_prof_16 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['devops_title'] >
+		,
+		ReturnType< $mol_dimmer['title'] >
+	>
+	type $mol_card__sub_bog_prof_app_prof_17 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_card['sub'] >
+	>
+	type $mol_card__sub_bog_prof_app_prof_18 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_card['sub'] >
+	>
+	type $mol_card__sub_bog_prof_app_prof_19 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_card['sub'] >
+	>
+	type $mol_card__sub_bog_prof_app_prof_20 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_card['sub'] >
+	>
 	export class $bog_prof_app_prof extends $mol_book2_catalog {
+		All_gallery_items( ): readonly($mol_view)[]
 		All_gallery( ): $mol_gallery
 		All( ): $mol_page
+		Dev_gallery_items( ): readonly($mol_view)[]
 		Dev_gallery( ): $mol_gallery
 		Development( ): $mol_page
+		Design_gallery_items( ): readonly($mol_view)[]
 		Design_gallery( ): $mol_gallery
 		Design( ): $mol_page
+		Devops_gallery_items( ): readonly($mol_view)[]
 		Devops_gallery( ): $mol_gallery
 		DevOps( ): $mol_page
+		all_title( id: any): string
+		All_item_label( id: any): $mol_dimmer
+		dev_title( id: any): string
+		Dev_item_label( id: any): $mol_dimmer
+		design_title( id: any): string
+		Design_item_label( id: any): $mol_dimmer
+		devops_title( id: any): string
+		Devops_item_label( id: any): $mol_dimmer
 		menu_title( ): string
 		spreads( ): ({ 
-			'all': ReturnType< $bog_prof_app_prof['All'] >,
+			'': ReturnType< $bog_prof_app_prof['All'] >,
 			'development': ReturnType< $bog_prof_app_prof['Development'] >,
 			'design': ReturnType< $bog_prof_app_prof['Design'] >,
 			'devops': ReturnType< $bog_prof_app_prof['DevOps'] >,
 		}) 
+		All_item( id: any): $mol_card
+		Dev_item( id: any): $mol_card
+		Design_item( id: any): $mol_card
+		Devops_item( id: any): $mol_card
 	}
 	
 }
@@ -5355,6 +5472,22 @@ declare namespace $ {
 //# sourceMappingURL=prof.view.tree.d.ts.map
 declare namespace $.$$ {
     class $bog_prof_app_prof extends $.$bog_prof_app_prof {
+        spread(next?: string): string;
+        arg(spread: string): {
+            [x: string]: string | null;
+        };
+        dev_titles(): readonly string[];
+        dev_title(id: number): string;
+        Dev_gallery_items(): $.$mol_card[];
+        design_titles(): readonly string[];
+        design_title(id: number): string;
+        Design_gallery_items(): $.$mol_card[];
+        devops_titles(): readonly string[];
+        devops_title(id: number): string;
+        Devops_gallery_items(): $.$mol_card[];
+        all_titles(): readonly string[];
+        all_title(id: number): string;
+        All_gallery_items(): $.$mol_card[];
     }
 }
 
@@ -6100,47 +6233,6 @@ declare namespace $ {
 //# sourceMappingURL=outline.view.tree.d.ts.map
 declare namespace $ {
 
-	type $mol_view__sub_mol_card_1 = $mol_type_enforce<
-		ReturnType< $mol_card['content'] >
-		,
-		ReturnType< $mol_view['sub'] >
-	>
-	type $mol_view__minimal_height_mol_card_2 = $mol_type_enforce<
-		number
-		,
-		ReturnType< $mol_view['minimal_height'] >
-	>
-	type $mol_view__sub_mol_card_3 = $mol_type_enforce<
-		readonly(any)[]
-		,
-		ReturnType< $mol_view['sub'] >
-	>
-	export class $mol_card extends $mol_list {
-		status( ): string
-		content( ): readonly($mol_view_content)[]
-		Content( ): $mol_view
-		status_text( ): ReturnType< $mol_card['status'] >
-		Status( ): $mol_view
-		attr( ): ({ 
-			'mol_card_status_type': ReturnType< $mol_card['status'] >,
-		})  & ReturnType< $mol_list['attr'] >
-		rows( ): readonly($mol_view)[]
-	}
-	
-}
-
-//# sourceMappingURL=card.view.tree.d.ts.map
-declare namespace $.$$ {
-    class $mol_card extends $.$mol_card {
-        rows(): readonly $mol_view[];
-    }
-}
-
-declare namespace $ {
-}
-
-declare namespace $ {
-
 	type $mol_link__title_bog_prof_app_vaka_item_1 = $mol_type_enforce<
 		ReturnType< $bog_prof_app_vaka_item['title'] >
 		,
@@ -6423,6 +6515,7 @@ declare namespace $ {
 //# sourceMappingURL=app.view.tree.d.ts.map
 declare namespace $.$$ {
     class $bog_prof_app extends $.$bog_prof_app {
+        spread(next?: string): string;
     }
 }
 

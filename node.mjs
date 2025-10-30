@@ -12552,9 +12552,74 @@ var $;
 })($ || ($ = {}));
 
 ;
+	($.$mol_card) = class $mol_card extends ($.$mol_list) {
+		status(){
+			return "";
+		}
+		content(){
+			return [(this.title())];
+		}
+		Content(){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ((this.content()));
+			return obj;
+		}
+		status_text(){
+			return (this.status());
+		}
+		Status(){
+			const obj = new this.$.$mol_view();
+			(obj.minimal_height) = () => (30);
+			(obj.sub) = () => ([(this.status_text())]);
+			return obj;
+		}
+		attr(){
+			return {...(super.attr()), "mol_card_status_type": (this.status())};
+		}
+		rows(){
+			return [(this.Content()), (this.Status())];
+		}
+	};
+	($mol_mem(($.$mol_card.prototype), "Content"));
+	($mol_mem(($.$mol_card.prototype), "Status"));
+
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_card extends $.$mol_card {
+            rows() {
+                return [
+                    this.Content(),
+                    ...this.status_text() ? [this.Status()] : [],
+                ];
+            }
+        }
+        $$.$mol_card = $mol_card;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/card/card.view.css", "[mol_card] {\n\tbackground: var(--mol_theme_card);\n\tcolor: var(--mol_theme_text);\n\tborder-radius: var(--mol_gap_round);\n\tdisplay: flex;\n\tflex: 0 1 auto;\n\tflex-direction: column;\n\tposition: relative;\n\tbox-shadow: 0 0 0.5rem 0rem hsla(0,0%,0%,.125);\n\t/* overflow: hidden; */\n}\n\n[mol_card_content] {\n\tflex: 1 1 auto;\n\tborder-radius: var(--mol_gap_round);\n\tmargin: 0;\n\tpadding: var(--mol_gap_block);\n}\n\n[mol_card_status] {\n\tbackground: var(--mol_theme_line);\n\tpadding: var(--mol_gap_text);\n\tmargin: 0;\n}\n\n[mol_card_status] {\n\tbackground: var(--mol_theme_line);\n}\n");
+})($ || ($ = {}));
+
+;
 	($.$bog_prof_app_prof) = class $bog_prof_app_prof extends ($.$mol_book2_catalog) {
+		All_gallery_items(){
+			return [];
+		}
 		All_gallery(){
 			const obj = new this.$.$mol_gallery();
+			(obj.items) = () => ((this.All_gallery_items()));
 			return obj;
 		}
 		All(){
@@ -12563,8 +12628,12 @@ var $;
 			(obj.body) = () => ([(this.All_gallery())]);
 			return obj;
 		}
+		Dev_gallery_items(){
+			return [];
+		}
 		Dev_gallery(){
 			const obj = new this.$.$mol_gallery();
+			(obj.items) = () => ((this.Dev_gallery_items()));
 			return obj;
 		}
 		Development(){
@@ -12573,8 +12642,12 @@ var $;
 			(obj.body) = () => ([(this.Dev_gallery())]);
 			return obj;
 		}
+		Design_gallery_items(){
+			return [];
+		}
 		Design_gallery(){
 			const obj = new this.$.$mol_gallery();
+			(obj.items) = () => ((this.Design_gallery_items()));
 			return obj;
 		}
 		Design(){
@@ -12583,8 +12656,12 @@ var $;
 			(obj.body) = () => ([(this.Design_gallery())]);
 			return obj;
 		}
+		Devops_gallery_items(){
+			return [];
+		}
 		Devops_gallery(){
 			const obj = new this.$.$mol_gallery();
+			(obj.items) = () => ((this.Devops_gallery_items()));
 			return obj;
 		}
 		DevOps(){
@@ -12593,16 +12670,68 @@ var $;
 			(obj.body) = () => ([(this.Devops_gallery())]);
 			return obj;
 		}
+		all_title(id){
+			return "";
+		}
+		All_item_label(id){
+			const obj = new this.$.$mol_dimmer();
+			(obj.title) = () => ((this.all_title(id)));
+			return obj;
+		}
+		dev_title(id){
+			return "";
+		}
+		Dev_item_label(id){
+			const obj = new this.$.$mol_dimmer();
+			(obj.title) = () => ((this.dev_title(id)));
+			return obj;
+		}
+		design_title(id){
+			return "";
+		}
+		Design_item_label(id){
+			const obj = new this.$.$mol_dimmer();
+			(obj.title) = () => ((this.design_title(id)));
+			return obj;
+		}
+		devops_title(id){
+			return "";
+		}
+		Devops_item_label(id){
+			const obj = new this.$.$mol_dimmer();
+			(obj.title) = () => ((this.devops_title(id)));
+			return obj;
+		}
 		menu_title(){
 			return (this.$.$mol_locale.text("$bog_prof_app_prof_menu_title"));
 		}
 		spreads(){
 			return {
-				"all": (this.All()), 
+				"": (this.All()), 
 				"development": (this.Development()), 
 				"design": (this.Design()), 
 				"devops": (this.DevOps())
 			};
+		}
+		All_item(id){
+			const obj = new this.$.$mol_card();
+			(obj.sub) = () => ([(this.All_item_label(id))]);
+			return obj;
+		}
+		Dev_item(id){
+			const obj = new this.$.$mol_card();
+			(obj.sub) = () => ([(this.Dev_item_label(id))]);
+			return obj;
+		}
+		Design_item(id){
+			const obj = new this.$.$mol_card();
+			(obj.sub) = () => ([(this.Design_item_label(id))]);
+			return obj;
+		}
+		Devops_item(id){
+			const obj = new this.$.$mol_card();
+			(obj.sub) = () => ([(this.Devops_item_label(id))]);
+			return obj;
 		}
 	};
 	($mol_mem(($.$bog_prof_app_prof.prototype), "All_gallery"));
@@ -12613,6 +12742,14 @@ var $;
 	($mol_mem(($.$bog_prof_app_prof.prototype), "Design"));
 	($mol_mem(($.$bog_prof_app_prof.prototype), "Devops_gallery"));
 	($mol_mem(($.$bog_prof_app_prof.prototype), "DevOps"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "All_item_label"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Dev_item_label"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Design_item_label"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Devops_item_label"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "All_item"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Dev_item"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Design_item"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Devops_item"));
 
 
 ;
@@ -12625,7 +12762,107 @@ var $;
     var $$;
     (function ($$) {
         class $bog_prof_app_prof extends $.$bog_prof_app_prof {
+            spread(next) {
+                const param = this.param();
+                if (next !== undefined) {
+                    const value = next ? `prof/${next}` : 'prof';
+                    this.$.$mol_state_arg.value(param, value);
+                    return next ?? '';
+                }
+                const raw = this.$.$mol_state_arg.value(param) ?? '';
+                const parts = String(raw).split('/');
+                if (parts[0] !== 'prof')
+                    return '';
+                return parts[1] ?? '';
+            }
+            arg(spread) {
+                const param = this.param();
+                const value = spread ? `prof/${spread}` : 'prof';
+                return { [param]: value || null };
+            }
+            dev_titles() {
+                return [
+                    'Frontend Developer',
+                    'Backend Developer',
+                    'Full Stack Developer',
+                    'Mobile Developer',
+                    'QA Engineer',
+                    'Data Engineer',
+                    'ML Engineer',
+                ];
+            }
+            dev_title(id) {
+                return this.dev_titles()[id] ?? '';
+            }
+            Dev_gallery_items() {
+                return this.dev_titles().map((_, i) => this.Dev_item(i));
+            }
+            design_titles() {
+                return [
+                    'UI/UX Designer',
+                    'Product Designer',
+                    'Graphic Designer',
+                    'Motion Designer',
+                ];
+            }
+            design_title(id) {
+                return this.design_titles()[id] ?? '';
+            }
+            Design_gallery_items() {
+                return this.design_titles().map((_, i) => this.Design_item(i));
+            }
+            devops_titles() {
+                return [
+                    'DevOps Engineer',
+                    'Site Reliability Engineer',
+                    'Cloud Engineer',
+                    'Platform Engineer',
+                ];
+            }
+            devops_title(id) {
+                return this.devops_titles()[id] ?? '';
+            }
+            Devops_gallery_items() {
+                return this.devops_titles().map((_, i) => this.Devops_item(i));
+            }
+            all_titles() {
+                const all = [...this.dev_titles(), ...this.design_titles(), ...this.devops_titles()];
+                return Array.from(new Set(all));
+            }
+            all_title(id) {
+                return this.all_titles()[id] ?? '';
+            }
+            All_gallery_items() {
+                return this.all_titles().map((_, i) => this.All_item(i));
+            }
         }
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_prof.prototype, "spread", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_prof.prototype, "dev_titles", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_prof.prototype, "Dev_gallery_items", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_prof.prototype, "design_titles", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_prof.prototype, "Design_gallery_items", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_prof.prototype, "devops_titles", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_prof.prototype, "Devops_gallery_items", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_prof.prototype, "all_titles", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_prof.prototype, "All_gallery_items", null);
         $$.$bog_prof_app_prof = $bog_prof_app_prof;
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));
@@ -13542,67 +13779,6 @@ var $;
 
 
 ;
-	($.$mol_card) = class $mol_card extends ($.$mol_list) {
-		status(){
-			return "";
-		}
-		content(){
-			return [(this.title())];
-		}
-		Content(){
-			const obj = new this.$.$mol_view();
-			(obj.sub) = () => ((this.content()));
-			return obj;
-		}
-		status_text(){
-			return (this.status());
-		}
-		Status(){
-			const obj = new this.$.$mol_view();
-			(obj.minimal_height) = () => (30);
-			(obj.sub) = () => ([(this.status_text())]);
-			return obj;
-		}
-		attr(){
-			return {...(super.attr()), "mol_card_status_type": (this.status())};
-		}
-		rows(){
-			return [(this.Content()), (this.Status())];
-		}
-	};
-	($mol_mem(($.$mol_card.prototype), "Content"));
-	($mol_mem(($.$mol_card.prototype), "Status"));
-
-
-;
-"use strict";
-
-;
-"use strict";
-var $;
-(function ($) {
-    var $$;
-    (function ($$) {
-        class $mol_card extends $.$mol_card {
-            rows() {
-                return [
-                    this.Content(),
-                    ...this.status_text() ? [this.Status()] : [],
-                ];
-            }
-        }
-        $$.$mol_card = $mol_card;
-    })($$ = $.$$ || ($.$$ = {}));
-})($ || ($ = {}));
-
-;
-"use strict";
-var $;
-(function ($) {
-    $mol_style_attach("mol/card/card.view.css", "[mol_card] {\n\tbackground: var(--mol_theme_card);\n\tcolor: var(--mol_theme_text);\n\tborder-radius: var(--mol_gap_round);\n\tdisplay: flex;\n\tflex: 0 1 auto;\n\tflex-direction: column;\n\tposition: relative;\n\tbox-shadow: 0 0 0.5rem 0rem hsla(0,0%,0%,.125);\n\t/* overflow: hidden; */\n}\n\n[mol_card_content] {\n\tflex: 1 1 auto;\n\tborder-radius: var(--mol_gap_round);\n\tmargin: 0;\n\tpadding: var(--mol_gap_block);\n}\n\n[mol_card_status] {\n\tbackground: var(--mol_theme_line);\n\tpadding: var(--mol_gap_text);\n\tmargin: 0;\n}\n\n[mol_card_status] {\n\tbackground: var(--mol_theme_line);\n}\n");
-})($ || ($ = {}));
-
-;
 	($.$bog_prof_app_vaka_item) = class $bog_prof_app_vaka_item extends ($.$mol_card) {
 		title(next){
 			if(next !== undefined) return next;
@@ -14135,7 +14311,17 @@ var $;
     var $$;
     (function ($$) {
         class $bog_prof_app extends $.$bog_prof_app {
+            spread(next) {
+                const param = this.param();
+                if (next !== undefined)
+                    return this.$.$mol_state_arg.value(param, next) ?? '';
+                const raw = this.$.$mol_state_arg.value(param) ?? '';
+                return String(raw).split('/')[0] || '';
+            }
         }
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app.prototype, "spread", null);
         $$.$bog_prof_app = $bog_prof_app;
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));
