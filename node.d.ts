@@ -5270,6 +5270,26 @@ declare namespace $ {
 		,
 		ReturnType< $gd_bot['Space'] >
 	>
+	type $gd_bot__Sources_bog_prof_app_2 = $mol_type_enforce<
+		any
+		,
+		ReturnType< $gd_bot['Sources'] >
+	>
+	type $gd_bot__Donate_bog_prof_app_3 = $mol_type_enforce<
+		any
+		,
+		ReturnType< $gd_bot['Donate'] >
+	>
+	type $gd_bot__Support_bog_prof_app_4 = $mol_type_enforce<
+		any
+		,
+		ReturnType< $gd_bot['Support'] >
+	>
+	type $gd_bot__Lights_bog_prof_app_5 = $mol_type_enforce<
+		any
+		,
+		ReturnType< $gd_bot['Lights'] >
+	>
 	export class $bog_prof_app extends $mol_book2_catalog {
 		Lights( ): $mol_lights_toggle
 		Theme( ): $bog_prof_theme_auto

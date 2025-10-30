@@ -12008,6 +12008,10 @@ var $;
 		Bot(){
 			const obj = new this.$.$gd_bot();
 			(obj.Space) = () => (null);
+			(obj.Sources) = () => (null);
+			(obj.Donate) = () => (null);
+			(obj.Support) = () => (null);
+			(obj.Lights) = () => (null);
 			return obj;
 		}
 		Placeholder(){
