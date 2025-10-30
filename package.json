@@ -262,7 +262,25 @@
     "$mol_array",
     "$mol_offline_install",
     "$mol_offline",
-    "$mol_icon_newspaper"
+    "$bog_prof_app_prof",
+    "$bog_prof_app_settings",
+    "$mol_locale_select",
+    "$mol_select",
+    "$mol_pick",
+    "$mol_icon_dots_vertical",
+    "$mol_icon_dots",
+    "$mol_lang_iso639",
+    "$mol_lang",
+    "$mol_labeler",
+    "$mol_button_major",
+    "$bog_prof_app_vaka",
+    "$mol_icon_magnify",
+    "$mol_bar",
+    "$mol_icon_information_outline",
+    "$mol_icon_information",
+    "$bog_prof_app_vaka_item",
+    "$mol_card",
+    "$mol_test"
   ],
   "dependencies": {
     "jsdom": "*"

@@ -34,4 +34,5 @@
 	include \/mol/offline/install
 \/bog/prof/app
 	include \/mol/offline/install
+	include \/mol/test
 	deploy \/bog/prof/assets

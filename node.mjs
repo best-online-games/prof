@@ -12479,15 +12479,1437 @@ var $;
 })($ || ($ = {}));
 
 ;
-	($.$mol_icon_newspaper) = class $mol_icon_newspaper extends ($.$mol_icon) {
+	($.$bog_prof_app_prof) = class $bog_prof_app_prof extends ($.$mol_page) {
+		prof_rows(){
+			return [];
+		}
+		Results(){
+			const obj = new this.$.$mol_list();
+			(obj.rows) = () => ((this.prof_rows()));
+			return obj;
+		}
+		title(){
+			return "Профессии";
+		}
+		body(){
+			return [(this.Results())];
+		}
+	};
+	($mol_mem(($.$bog_prof_app_prof.prototype), "Results"));
+
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $bog_prof_app_prof extends $.$bog_prof_app_prof {
+            professions_by_category() {
+                return {
+                    ИТ: ['Разработчик', 'Тестировщик', 'Аналитик', 'DevOps'],
+                    Дизайн: ['UI/UX дизайнер', 'Графический дизайнер'],
+                    Маркетинг: ['Маркетолог', 'SMM-менеджер'],
+                };
+            }
+            prof_rows() {
+                const ids = this.professions_by_category();
+                console.log(ids);
+                return ['Разработчик', 'Тестировщик', 'Аналитик', 'DevOps'];
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_prof.prototype, "professions_by_category", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_prof.prototype, "prof_rows", null);
+        $$.$bog_prof_app_prof = $bog_prof_app_prof;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+	($.$mol_pick) = class $mol_pick extends ($.$mol_pop) {
+		keydown(next){
+			if(next !== undefined) return next;
+			return null;
+		}
+		trigger_enabled(){
+			return true;
+		}
+		clicks(next){
+			if(next !== undefined) return next;
+			return null;
+		}
+		trigger_content(){
+			return [(this.title())];
+		}
+		hint(){
+			return "";
+		}
+		Trigger(){
+			const obj = new this.$.$mol_check();
+			(obj.minimal_width) = () => (40);
+			(obj.minimal_height) = () => (40);
+			(obj.enabled) = () => ((this.trigger_enabled()));
+			(obj.checked) = (next) => ((this.showed(next)));
+			(obj.clicks) = (next) => ((this.clicks(next)));
+			(obj.sub) = () => ((this.trigger_content()));
+			(obj.hint) = () => ((this.hint()));
+			return obj;
+		}
+		event(){
+			return {...(super.event()), "keydown": (next) => (this.keydown(next))};
+		}
+		Anchor(){
+			return (this.Trigger());
+		}
+	};
+	($mol_mem(($.$mol_pick.prototype), "keydown"));
+	($mol_mem(($.$mol_pick.prototype), "clicks"));
+	($mol_mem(($.$mol_pick.prototype), "Trigger"));
+
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_pick extends $.$mol_pick {
+            keydown(event) {
+                if (!this.trigger_enabled())
+                    return;
+                if (event.defaultPrevented)
+                    return;
+                if (event.keyCode === $mol_keyboard_code.escape) {
+                    if (!this.showed())
+                        return;
+                    event.preventDefault();
+                    this.showed(false);
+                }
+            }
+        }
+        $$.$mol_pick = $mol_pick;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/pick/pick.view.css", "[mol_pick_trigger] {\n\talign-items: center;\n\tflex-grow: 1;\n}\n");
+})($ || ($ = {}));
+
+;
+	($.$mol_icon_dots_vertical) = class $mol_icon_dots_vertical extends ($.$mol_icon) {
 		path(){
-			return "M20,11H4V8H20M20,15H13V13H20M20,19H13V17H20M11,19H4V13H11M20.33,4.67L18.67,3L17,4.67L15.33,3L13.67,4.67L12,3L10.33,4.67L8.67,3L7,4.67L5.33,3L3.67,4.67L2,3V19A2,2 0 0,0 4,21H20A2,2 0 0,0 22,19V3L20.33,4.67Z";
+			return "M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z";
 		}
 	};
 
 
 ;
 "use strict";
+
+;
+	($.$mol_select) = class $mol_select extends ($.$mol_pick) {
+		enabled(){
+			return true;
+		}
+		event_select(id, next){
+			if(next !== undefined) return next;
+			return null;
+		}
+		option_label(id){
+			return "";
+		}
+		filter_pattern(next){
+			if(next !== undefined) return next;
+			return "";
+		}
+		Option_label(id){
+			const obj = new this.$.$mol_dimmer();
+			(obj.haystack) = () => ((this.option_label(id)));
+			(obj.needle) = () => ((this.filter_pattern()));
+			return obj;
+		}
+		option_content(id){
+			return [(this.Option_label(id))];
+		}
+		no_options_message(){
+			return (this.$.$mol_locale.text("$mol_select_no_options_message"));
+		}
+		nav_components(){
+			return [];
+		}
+		option_focused(next){
+			if(next !== undefined) return next;
+			return null;
+		}
+		nav_cycle(next){
+			if(next !== undefined) return next;
+			return true;
+		}
+		Nav(){
+			const obj = new this.$.$mol_nav();
+			(obj.keys_y) = () => ((this.nav_components()));
+			(obj.current_y) = (next) => ((this.option_focused(next)));
+			(obj.cycle) = (next) => ((this.nav_cycle(next)));
+			return obj;
+		}
+		menu_content(){
+			return [];
+		}
+		Menu(){
+			const obj = new this.$.$mol_list();
+			(obj.rows) = () => ((this.menu_content()));
+			return obj;
+		}
+		Bubble_pane(){
+			const obj = new this.$.$mol_scroll();
+			(obj.sub) = () => ([(this.Menu())]);
+			return obj;
+		}
+		filter_hint(){
+			return (this.$.$mol_locale.text("$mol_select_filter_hint"));
+		}
+		submit(next){
+			if(next !== undefined) return next;
+			return null;
+		}
+		dictionary(next){
+			if(next !== undefined) return next;
+			return {};
+		}
+		options(){
+			return [];
+		}
+		value(next){
+			if(next !== undefined) return next;
+			return "";
+		}
+		option_label_default(){
+			return "";
+		}
+		Option_row(id){
+			const obj = new this.$.$mol_button_minor();
+			(obj.enabled) = () => ((this.enabled()));
+			(obj.event_click) = (next) => ((this.event_select(id, next)));
+			(obj.sub) = () => ((this.option_content(id)));
+			return obj;
+		}
+		No_options(){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.no_options_message())]);
+			return obj;
+		}
+		plugins(){
+			return [...(super.plugins()), (this.Nav())];
+		}
+		hint(){
+			return (this.$.$mol_locale.text("$mol_select_hint"));
+		}
+		bubble_content(){
+			return [(this.Filter()), (this.Bubble_pane())];
+		}
+		Filter(){
+			const obj = new this.$.$mol_search();
+			(obj.query) = (next) => ((this.filter_pattern(next)));
+			(obj.hint) = () => ((this.filter_hint()));
+			(obj.submit) = (next) => ((this.submit(next)));
+			(obj.enabled) = () => ((this.enabled()));
+			return obj;
+		}
+		Trigger_icon(){
+			const obj = new this.$.$mol_icon_dots_vertical();
+			return obj;
+		}
+	};
+	($mol_mem_key(($.$mol_select.prototype), "event_select"));
+	($mol_mem(($.$mol_select.prototype), "filter_pattern"));
+	($mol_mem_key(($.$mol_select.prototype), "Option_label"));
+	($mol_mem(($.$mol_select.prototype), "option_focused"));
+	($mol_mem(($.$mol_select.prototype), "nav_cycle"));
+	($mol_mem(($.$mol_select.prototype), "Nav"));
+	($mol_mem(($.$mol_select.prototype), "Menu"));
+	($mol_mem(($.$mol_select.prototype), "Bubble_pane"));
+	($mol_mem(($.$mol_select.prototype), "submit"));
+	($mol_mem(($.$mol_select.prototype), "dictionary"));
+	($mol_mem(($.$mol_select.prototype), "value"));
+	($mol_mem_key(($.$mol_select.prototype), "Option_row"));
+	($mol_mem(($.$mol_select.prototype), "No_options"));
+	($mol_mem(($.$mol_select.prototype), "Filter"));
+	($mol_mem(($.$mol_select.prototype), "Trigger_icon"));
+
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_select extends $.$mol_select {
+            filter_pattern(next) {
+                this.focused();
+                return next || '';
+            }
+            open() {
+                this.showed(true);
+            }
+            options() {
+                return Object.keys(this.dictionary());
+            }
+            options_filtered() {
+                let options = this.options();
+                options = options.filter($mol_match_text(this.filter_pattern(), (id) => [this.option_label(id)]));
+                const index = options.indexOf(this.value());
+                if (index >= 0)
+                    options = [...options.slice(0, index), ...options.slice(index + 1)];
+                return options;
+            }
+            option_label(id) {
+                const value = this.dictionary()[id];
+                return (value == null ? id : value) || this.option_label_default();
+            }
+            option_rows() {
+                return this.options_filtered().map((option) => this.Option_row(option));
+            }
+            option_focused(component) {
+                if (component == null) {
+                    for (let comp of this.nav_components()) {
+                        if (comp && comp.focused())
+                            return comp;
+                    }
+                    return null;
+                }
+                if (this.showed()) {
+                    component.focused(true);
+                }
+                return component;
+            }
+            event_select(id, event) {
+                this.value(id);
+                this.showed(false);
+                event?.preventDefault();
+            }
+            nav_components() {
+                if (this.options().length > 1 && this.Filter()) {
+                    return [this.Filter(), ...this.option_rows()];
+                }
+                else {
+                    return this.option_rows();
+                }
+            }
+            trigger_content() {
+                return [
+                    ...this.option_content(this.value()),
+                    this.Trigger_icon(),
+                ];
+            }
+            menu_content() {
+                return [
+                    ...this.option_rows(),
+                    ...(this.options_filtered().length === 0) ? [this.No_options()] : []
+                ];
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $mol_select.prototype, "filter_pattern", null);
+        __decorate([
+            $mol_mem
+        ], $mol_select.prototype, "options", null);
+        __decorate([
+            $mol_mem
+        ], $mol_select.prototype, "options_filtered", null);
+        __decorate([
+            $mol_mem
+        ], $mol_select.prototype, "option_focused", null);
+        $$.$mol_select = $mol_select;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/select/select.view.css", "[mol_select] {\n\tdisplay: flex;\n\tword-break: normal;\n\talign-self: flex-start;\n}\n\n[mol_select_option_row] {\n\tmin-width: 100%;\n\tpadding: 0;\n\tjustify-content: flex-start;\n}\n\n[mol_select_bubble] {\n\tmin-width: 100%;\n}\n\n[mol_select_filter] {\n\tflex: 1 0 auto;\n\talign-self: stretch;\n}\n\n[mol_select_option_label] {\n\tpadding: var(--mol_gap_text);\n\ttext-align: left;\n\tmin-height: 1.5em;\n\tdisplay: block;\n\twhite-space: nowrap;\n}\n\n[mol_select_clear_option_content] {\n\tpadding: .5em 1rem .5rem 0;\n\ttext-align: left;\n\tbox-shadow: var(--mol_theme_line);\n\tflex: 1 0 auto;\n}\n\n[mol_select_no_options] {\n\tpadding: var(--mol_gap_text);\n\ttext-align: left;\n\tdisplay: block;\n\tcolor: var(--mol_theme_shade);\n}\n\n[mol_select_trigger] {\n\tpadding: 0;\n\tflex: 1 1 auto;\n\tdisplay: flex;\n}\n\n[mol_select_trigger] > * {\n\tmargin-right: -1rem;\n}\n\n[mol_select_trigger] > *:last-child {\n\tmargin-right: 0;\n}\n\n[mol_select_menu] {\n\tdisplay: flex;\n\tflex-direction: column;\n}\n\n");
+})($ || ($ = {}));
+
+;
+	($.$mol_locale_select) = class $mol_locale_select extends ($.$mol_select) {};
+
+
+;
+"use strict";
+var $;
+(function ($) {
+    $.$mol_lang_iso639 = {
+        ab: "Abkhazian",
+        aa: "Afar",
+        af: "Afrikaans",
+        ak: "Akan",
+        sq: "Albanian",
+        am: "Amharic",
+        ar: "Arabic",
+        an: "Aragonese",
+        hy: "Armenian",
+        as: "Assamese",
+        av: "Avaric",
+        ae: "Avestan",
+        ay: "Aymara",
+        az: "Azerbaijani",
+        bm: "Bambara",
+        ba: "Bashkir",
+        eu: "Basque",
+        be: "Belarusian",
+        bn: "Bengali",
+        bi: "Bislama",
+        nb: "Bokmål",
+        bs: "Bosnian",
+        br: "Breton",
+        bg: "Bulgarian",
+        my: "Burmese",
+        ca: "Catalan",
+        ch: "Chamorro",
+        ce: "Chechen",
+        zh: "Chinese",
+        cu: "Church Slavonic",
+        cv: "Chuvash",
+        kw: "Cornish",
+        co: "Corsican",
+        cr: "Cree",
+        hr: "Croatian",
+        cs: "Czech",
+        da: "Danish",
+        dv: "Divehi",
+        nl: "Dutch",
+        dz: "Dzongkha",
+        en: "English",
+        eo: "Esperanto",
+        et: "Estonian",
+        ee: "Ewe",
+        fo: "Faroese",
+        fj: "Fijian",
+        fi: "Finnish",
+        fr: "French",
+        fy: "Frisian",
+        ff: "Fulah",
+        gd: "Gaelic",
+        gl: "Galician",
+        lg: "Ganda",
+        ka: "Georgian",
+        de: "German",
+        el: "Greek",
+        gn: "Guarani",
+        gu: "Gujarati",
+        ht: "Haitian",
+        ha: "Hausa",
+        he: "Hebrew",
+        hz: "Herero",
+        hi: "Hindi",
+        ho: "Hiri Motu",
+        hu: "Hungarian",
+        is: "Icelandic",
+        io: "Ido",
+        ig: "Igbo",
+        id: "Indonesian",
+        ia: "InterlinguA",
+        ie: "InterlinguE",
+        iu: "Inuktitut",
+        ik: "Inupiaq",
+        ga: "Irish",
+        it: "Italian",
+        ja: "Japanese",
+        jv: "Javanese",
+        kl: "Kalaallisut",
+        kn: "Kannada",
+        kr: "Kanuri",
+        ks: "Kashmiri",
+        kk: "Kazakh",
+        km: "Khmer",
+        ki: "Kikuyu",
+        rw: "Kinyarwanda",
+        ky: "Kyrgyz",
+        kv: "Komi",
+        kg: "Kongo",
+        ko: "Korean",
+        kj: "Kwanyama",
+        ku: "Kurdish",
+        lo: "Lao",
+        la: "Latin",
+        lv: "Latvian",
+        li: "Limburgan",
+        ln: "Lingala",
+        lt: "Lithuanian",
+        lu: "Luba-Katanga",
+        lb: "Luxembourgish",
+        mk: "Macedonian",
+        mg: "Malagasy",
+        ms: "Malay",
+        ml: "Malayalam",
+        mt: "Maltese",
+        gv: "Manx",
+        mi: "Maori",
+        mr: "Marathi",
+        mh: "Marshallese",
+        mn: "Mongolian",
+        na: "Nauru",
+        nv: "Navaho",
+        nd: "North Ndebele",
+        ng: "Ndonga",
+        ne: "Nepali",
+        no: "Norwegian",
+        ny: "Nyanja",
+        nn: "Nynorsk",
+        oc: "Occitan",
+        oj: "Ojibwa",
+        or: "Oriya",
+        om: "Oromo",
+        os: "Ossetian",
+        pi: "Pali",
+        ps: "Pushto",
+        fa: "Persian",
+        pl: "Polish",
+        pt: "Portuguese",
+        pa: "Panjabi",
+        qu: "Quechua",
+        ro: "Romanian",
+        rm: "Romansh",
+        rn: "Rundi",
+        ru: "Russian",
+        se: "Sami",
+        sm: "Samoan",
+        sg: "Sango",
+        sa: "Sanskrit",
+        sc: "Sardinian",
+        sr: "Serbian",
+        sn: "Shona",
+        ii: "Sichuan Yi",
+        sd: "Sindhi",
+        si: "Sinhala",
+        sk: "Slovak",
+        sl: "Slovenian",
+        so: "Somali",
+        st: "Sotho",
+        nr: "South Ndebele",
+        es: "Spanish",
+        su: "Sundanese",
+        sw: "Swahili",
+        ss: "Swati",
+        sv: "Swedish",
+        tl: "Tagalog",
+        ty: "Tahitian",
+        tg: "Tajik",
+        ta: "Tamil",
+        tt: "Tatar",
+        te: "Telugu",
+        th: "Thai",
+        bo: "Tibetan",
+        ti: "Tigrinya",
+        to: "Tonga",
+        ts: "Tsonga",
+        tn: "Tswana",
+        tr: "Turkish",
+        tk: "Turkmen",
+        tw: "Twi",
+        ug: "Uyghur",
+        uk: "Ukrainian",
+        ur: "Urdu",
+        uz: "Uzbek",
+        ve: "Venda",
+        vi: "Vietnamese",
+        vo: "Volapük",
+        wa: "Walloon",
+        cy: "Welsh",
+        wo: "Wolof",
+        xh: "Xhosa",
+        yi: "Yiddish",
+        yo: "Yoruba",
+        za: "Zhuang",
+        zu: "Zulu",
+    };
+})($ || ($ = {}));
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_locale_select extends $.$mol_locale_select {
+            value(next) {
+                return this.$.$mol_locale.lang(next);
+            }
+            dictionary() {
+                return this.$.$mol_lang_iso639;
+            }
+        }
+        $$.$mol_locale_select = $mol_locale_select;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+	($.$mol_labeler) = class $mol_labeler extends ($.$mol_list) {
+		label(){
+			return [(this.title())];
+		}
+		Label(){
+			const obj = new this.$.$mol_view();
+			(obj.minimal_height) = () => (32);
+			(obj.sub) = () => ((this.label()));
+			return obj;
+		}
+		content(){
+			return [];
+		}
+		Content(){
+			const obj = new this.$.$mol_view();
+			(obj.minimal_height) = () => (24);
+			(obj.sub) = () => ((this.content()));
+			return obj;
+		}
+		rows(){
+			return [(this.Label()), (this.Content())];
+		}
+	};
+	($mol_mem(($.$mol_labeler.prototype), "Label"));
+	($mol_mem(($.$mol_labeler.prototype), "Content"));
+
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/labeler/labeler.view.css", "[mol_labeler] {\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: stretch;\n\tcursor: inherit;\n}\n\n[mol_labeler_label] {\n\tmin-height: 2rem;\n\tcolor: var(--mol_theme_shade);\n\tpadding: .5rem .75rem 0;\n\tgap: 0 var(--mol_gap_block);\n\tflex-wrap: wrap;\n}\n\n[mol_labeler_content] {\n\tdisplay: flex;\n\tpadding: var(--mol_gap_text);\n\tmin-height: 2.5rem;\n}\n");
+})($ || ($ = {}));
+
+;
+"use strict";
+
+;
+	($.$mol_button_major) = class $mol_button_major extends ($.$mol_button_minor) {
+		theme(){
+			return "$mol_theme_base";
+		}
+	};
+
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/button/major/major.view.css", "[mol_button_major] {\n\tbackground-color: var(--mol_theme_back);\n\tcolor: var(--mol_theme_text);\n}\n");
+})($ || ($ = {}));
+
+;
+"use strict";
+
+;
+	($.$bog_prof_app_settings) = class $bog_prof_app_settings extends ($.$mol_page) {
+		Language_select(){
+			const obj = new this.$.$mol_locale_select();
+			(obj.dictionary) = () => ({
+				"ru": "Russian", 
+				"en": "English", 
+				"de": "Deutsch"
+			});
+			return obj;
+		}
+		Language_labeler(){
+			const obj = new this.$.$mol_labeler();
+			(obj.title) = () => ((this.$.$mol_locale.text("$bog_prof_app_settings_Language_labeler_title")));
+			(obj.content) = () => ([(this.Language_select())]);
+			return obj;
+		}
+		install(next){
+			if(next !== undefined) return next;
+			return null;
+		}
+		Install_button(){
+			const obj = new this.$.$mol_button_major();
+			(obj.title) = () => ((this.$.$mol_locale.text("$bog_prof_app_settings_Install_button_title")));
+			(obj.click) = (next) => ((this.install(next)));
+			return obj;
+		}
+		Install_labeler(){
+			const obj = new this.$.$mol_labeler();
+			(obj.title) = () => ((this.$.$mol_locale.text("$bog_prof_app_settings_Install_labeler_title")));
+			(obj.content) = () => ([(this.Install_button())]);
+			return obj;
+		}
+		title(){
+			return (this.$.$mol_locale.text("$bog_prof_app_settings_title"));
+		}
+		body(){
+			return [(this.Language_labeler()), (this.Install_labeler())];
+		}
+		install_ios_instruction(){
+			return (this.$.$mol_locale.text("$bog_prof_app_settings_install_ios_instruction"));
+		}
+		install_android_instruction(){
+			return (this.$.$mol_locale.text("$bog_prof_app_settings_install_android_instruction"));
+		}
+		install_desktop_instruction(){
+			return (this.$.$mol_locale.text("$bog_prof_app_settings_install_desktop_instruction"));
+		}
+		install_unsupported_browser(){
+			return (this.$.$mol_locale.text("$bog_prof_app_settings_install_unsupported_browser"));
+		}
+		install_already_installed(){
+			return (this.$.$mol_locale.text("$bog_prof_app_settings_install_already_installed"));
+		}
+	};
+	($mol_mem(($.$bog_prof_app_settings.prototype), "Language_select"));
+	($mol_mem(($.$bog_prof_app_settings.prototype), "Language_labeler"));
+	($mol_mem(($.$bog_prof_app_settings.prototype), "install"));
+	($mol_mem(($.$bog_prof_app_settings.prototype), "Install_button"));
+	($mol_mem(($.$bog_prof_app_settings.prototype), "Install_labeler"));
+
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $bog_prof_app_settings extends $.$bog_prof_app_settings {
+            deferredPrompt = null;
+            auto() {
+                super.auto();
+                if (typeof window === 'undefined')
+                    return;
+                window.addEventListener('beforeinstallprompt', event => {
+                    event.preventDefault();
+                    this.deferredPrompt = event;
+                });
+                window.addEventListener('appinstalled', () => {
+                    this.deferredPrompt = null;
+                });
+            }
+            install() {
+                if (typeof window === 'undefined')
+                    return;
+                if (this.deferredPrompt) {
+                    const promptEvent = this.deferredPrompt;
+                    promptEvent.prompt();
+                    const choice = promptEvent.userChoice;
+                    if (choice?.finally) {
+                        choice.finally(() => {
+                            this.deferredPrompt = null;
+                        });
+                    }
+                    else if (choice?.then) {
+                        choice
+                            .then(() => {
+                            this.deferredPrompt = null;
+                        })
+                            .catch(() => {
+                            this.deferredPrompt = null;
+                        });
+                    }
+                    else {
+                        this.deferredPrompt = null;
+                    }
+                    return;
+                }
+                const isStandalone = window.matchMedia?.('(display-mode: standalone)')?.matches || navigator.standalone;
+                if (isStandalone) {
+                    alert(this.install_already_installed());
+                    return;
+                }
+                const userAgent = navigator.userAgent;
+                if (/iPad|iPhone|iPod/.test(userAgent)) {
+                    alert(this.install_ios_instruction());
+                    return;
+                }
+                if (/Android/.test(userAgent)) {
+                    alert(this.install_android_instruction());
+                    return;
+                }
+                if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent)) {
+                    alert(this.install_desktop_instruction());
+                    return;
+                }
+                alert(this.install_unsupported_browser());
+            }
+        }
+        __decorate([
+            $mol_action
+        ], $bog_prof_app_settings.prototype, "install", null);
+        $$.$bog_prof_app_settings = $bog_prof_app_settings;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+	($.$mol_icon_magnify) = class $mol_icon_magnify extends ($.$mol_icon) {
+		path(){
+			return "M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_bar) = class $mol_bar extends ($.$mol_view) {};
+
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/bar/bar.view.css", "[mol_bar] {\n\tdisplay: flex;\n\t/* box-shadow: inset 0 0 0 1px var(--mol_theme_line); */\n\tborder-radius: var(--mol_gap_round);\n}\n");
+})($ || ($ = {}));
+
+;
+"use strict";
+
+;
+	($.$mol_icon_information) = class $mol_icon_information extends ($.$mol_icon) {
+		path(){
+			return "M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_icon_information_outline) = class $mol_icon_information_outline extends ($.$mol_icon) {
+		path(){
+			return "M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$bog_prof_app_vaka) = class $bog_prof_app_vaka extends ($.$mol_page) {
+		query(next){
+			if(next !== undefined) return next;
+			return "";
+		}
+		Query(){
+			const obj = new this.$.$mol_string();
+			(obj.hint) = () => ((this.$.$mol_locale.text("$bog_prof_app_vaka_Query_hint")));
+			(obj.value) = (next) => ((this.query(next)));
+			return obj;
+		}
+		area_name(next){
+			if(next !== undefined) return next;
+			return "";
+		}
+		Area(){
+			const obj = new this.$.$mol_select();
+			(obj.options) = () => ([
+				"Россия", 
+				"Москва", 
+				"Санкт-Петербург"
+			]);
+			(obj.value) = (next) => ((this.area_name(next)));
+			return obj;
+		}
+		Search_icon(){
+			const obj = new this.$.$mol_icon_magnify();
+			return obj;
+		}
+		Search(){
+			const obj = new this.$.$mol_button_minor();
+			(obj.hint) = () => ((this.$.$mol_locale.text("$bog_prof_app_vaka_Search_hint")));
+			(obj.click) = (next) => ((this.search(next)));
+			(obj.sub) = () => ([(this.Search_icon())]);
+			return obj;
+		}
+		Tools(){
+			const obj = new this.$.$mol_bar();
+			(obj.sub) = () => ([
+				(this.Query()), 
+				(this.Area()), 
+				(this.Search())
+			]);
+			return obj;
+		}
+		vacancy_rows(){
+			return [];
+		}
+		Results(){
+			const obj = new this.$.$mol_list();
+			(obj.rows) = () => ((this.vacancy_rows()));
+			return obj;
+		}
+		Empty_icon(){
+			const obj = new this.$.$mol_icon_information_outline();
+			return obj;
+		}
+		empty_message(){
+			return "";
+		}
+		Empty_message(){
+			const obj = new this.$.$mol_text();
+			(obj.text) = () => ((this.empty_message()));
+			return obj;
+		}
+		Empty(){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.Empty_icon()), (this.Empty_message())]);
+			return obj;
+		}
+		Credits(){
+			const obj = new this.$.$mol_link();
+			(obj.uri) = () => ("https://api.hh.ru");
+			(obj.title) = () => ((this.$.$mol_locale.text("$bog_prof_app_vaka_Credits_title")));
+			return obj;
+		}
+		search(next){
+			if(next !== undefined) return next;
+			return null;
+		}
+		title(){
+			return (this.$.$mol_locale.text("$bog_prof_app_vaka_title"));
+		}
+		tools(){
+			return [(this.Tools())];
+		}
+		body(){
+			return [(this.Results()), (this.Empty())];
+		}
+		foot(){
+			return [(this.Credits())];
+		}
+	};
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "query"));
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "Query"));
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "area_name"));
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "Area"));
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "Search_icon"));
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "Search"));
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "Tools"));
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "Results"));
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "Empty_icon"));
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "Empty_message"));
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "Empty"));
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "Credits"));
+	($mol_mem(($.$bog_prof_app_vaka.prototype), "search"));
+
+
+;
+	($.$mol_card) = class $mol_card extends ($.$mol_list) {
+		status(){
+			return "";
+		}
+		content(){
+			return [(this.title())];
+		}
+		Content(){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ((this.content()));
+			return obj;
+		}
+		status_text(){
+			return (this.status());
+		}
+		Status(){
+			const obj = new this.$.$mol_view();
+			(obj.minimal_height) = () => (30);
+			(obj.sub) = () => ([(this.status_text())]);
+			return obj;
+		}
+		attr(){
+			return {...(super.attr()), "mol_card_status_type": (this.status())};
+		}
+		rows(){
+			return [(this.Content()), (this.Status())];
+		}
+	};
+	($mol_mem(($.$mol_card.prototype), "Content"));
+	($mol_mem(($.$mol_card.prototype), "Status"));
+
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_card extends $.$mol_card {
+            rows() {
+                return [
+                    this.Content(),
+                    ...this.status_text() ? [this.Status()] : [],
+                ];
+            }
+        }
+        $$.$mol_card = $mol_card;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/card/card.view.css", "[mol_card] {\n\tbackground: var(--mol_theme_card);\n\tcolor: var(--mol_theme_text);\n\tborder-radius: var(--mol_gap_round);\n\tdisplay: flex;\n\tflex: 0 1 auto;\n\tflex-direction: column;\n\tposition: relative;\n\tbox-shadow: 0 0 0.5rem 0rem hsla(0,0%,0%,.125);\n\t/* overflow: hidden; */\n}\n\n[mol_card_content] {\n\tflex: 1 1 auto;\n\tborder-radius: var(--mol_gap_round);\n\tmargin: 0;\n\tpadding: var(--mol_gap_block);\n}\n\n[mol_card_status] {\n\tbackground: var(--mol_theme_line);\n\tpadding: var(--mol_gap_text);\n\tmargin: 0;\n}\n\n[mol_card_status] {\n\tbackground: var(--mol_theme_line);\n}\n");
+})($ || ($ = {}));
+
+;
+	($.$bog_prof_app_vaka_item) = class $bog_prof_app_vaka_item extends ($.$mol_card) {
+		title(next){
+			if(next !== undefined) return next;
+			return "";
+		}
+		url(next){
+			if(next !== undefined) return next;
+			return "";
+		}
+		Title(){
+			const obj = new this.$.$mol_link();
+			(obj.title) = () => ((this.title()));
+			(obj.uri) = () => ((this.url()));
+			return obj;
+		}
+		meta(next){
+			if(next !== undefined) return next;
+			return "";
+		}
+		Meta(){
+			const obj = new this.$.$mol_text();
+			(obj.text) = () => ((this.meta()));
+			return obj;
+		}
+		salary(next){
+			if(next !== undefined) return next;
+			return "";
+		}
+		Salary(){
+			const obj = new this.$.$mol_text();
+			(obj.text) = () => ((this.salary()));
+			return obj;
+		}
+		snippet(next){
+			if(next !== undefined) return next;
+			return "";
+		}
+		Snippet(){
+			const obj = new this.$.$mol_text();
+			(obj.text) = () => ((this.snippet()));
+			return obj;
+		}
+		vacancy(){
+			return null;
+		}
+		sub(){
+			return [
+				(this.Title()), 
+				(this.Meta()), 
+				(this.Salary()), 
+				(this.Snippet())
+			];
+		}
+	};
+	($mol_mem(($.$bog_prof_app_vaka_item.prototype), "title"));
+	($mol_mem(($.$bog_prof_app_vaka_item.prototype), "url"));
+	($mol_mem(($.$bog_prof_app_vaka_item.prototype), "Title"));
+	($mol_mem(($.$bog_prof_app_vaka_item.prototype), "meta"));
+	($mol_mem(($.$bog_prof_app_vaka_item.prototype), "Meta"));
+	($mol_mem(($.$bog_prof_app_vaka_item.prototype), "salary"));
+	($mol_mem(($.$bog_prof_app_vaka_item.prototype), "Salary"));
+	($mol_mem(($.$bog_prof_app_vaka_item.prototype), "snippet"));
+	($mol_mem(($.$bog_prof_app_vaka_item.prototype), "Snippet"));
+
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $bog_prof_app_vaka_item extends $.$bog_prof_app_vaka_item {
+            vacancy(next) {
+                return next ?? null;
+            }
+            title() {
+                const vacancy = this.vacancy();
+                return vacancy?.name ?? 'Без названия';
+            }
+            url() {
+                const vacancy = this.vacancy();
+                return vacancy?.alternate_url ?? '#';
+            }
+            meta() {
+                const vacancy = this.vacancy();
+                if (!vacancy)
+                    return '';
+                const parts = [];
+                if (vacancy.employer?.name) {
+                    parts.push(`🏢 ${vacancy.employer.name}`);
+                }
+                if (vacancy.area?.name) {
+                    parts.push(`📍 ${vacancy.area.name}`);
+                }
+                if (vacancy.experience?.name) {
+                    parts.push(`💼 ${vacancy.experience.name}`);
+                }
+                if (vacancy.schedule?.name) {
+                    parts.push(`⏰ ${vacancy.schedule.name}`);
+                }
+                return parts.join(' • ');
+            }
+            salary() {
+                const vacancy = this.vacancy();
+                if (!vacancy?.salary)
+                    return '💰 Зарплата не указана';
+                const { from, to, currency, gross } = vacancy.salary;
+                const curr = this.currency_symbol(currency);
+                const taxInfo = gross ? ' (до вычета налогов)' : '';
+                if (from && to) {
+                    return `💰 ${from.toLocaleString('ru-RU')} - ${to.toLocaleString('ru-RU')} ${curr}${taxInfo}`;
+                }
+                else if (from) {
+                    return `💰 от ${from.toLocaleString('ru-RU')} ${curr}${taxInfo}`;
+                }
+                else if (to) {
+                    return `💰 до ${to.toLocaleString('ru-RU')} ${curr}${taxInfo}`;
+                }
+                return '💰 Зарплата не указана';
+            }
+            currency_symbol(code) {
+                const symbols = {
+                    RUR: '₽',
+                    RUB: '₽',
+                    USD: '$',
+                    EUR: '€',
+                    KZT: '₸',
+                    UAH: '₴',
+                    BYR: 'Br',
+                    BYN: 'Br',
+                    AZN: '₼',
+                    UZS: 'сўм',
+                    GEL: '₾',
+                };
+                return symbols[code] ?? code;
+            }
+            snippet() {
+                const vacancy = this.vacancy();
+                if (!vacancy?.snippet)
+                    return '';
+                const parts = [];
+                if (vacancy.snippet.requirement) {
+                    const req = this.clean_html(vacancy.snippet.requirement);
+                    if (req) {
+                        parts.push(`📋 Требования:\n${req}`);
+                    }
+                }
+                if (vacancy.snippet.responsibility) {
+                    const resp = this.clean_html(vacancy.snippet.responsibility);
+                    if (resp) {
+                        parts.push(`✅ Обязанности:\n${resp}`);
+                    }
+                }
+                return parts.join('\n\n');
+            }
+            clean_html(text) {
+                if (!text)
+                    return '';
+                return (text
+                    .replace(/<highlighttext>/gi, '**')
+                    .replace(/<\/highlighttext>/gi, '**')
+                    .replace(/<[^>]+>/g, '')
+                    .replace(/&nbsp;/g, ' ')
+                    .replace(/&quot;/g, '"')
+                    .replace(/&amp;/g, '&')
+                    .replace(/&lt;/g, '<')
+                    .replace(/&gt;/g, '>')
+                    .replace(/\s+/g, ' ')
+                    .trim());
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_vaka_item.prototype, "title", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_vaka_item.prototype, "url", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_vaka_item.prototype, "meta", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_vaka_item.prototype, "salary", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_vaka_item.prototype, "snippet", null);
+        $$.$bog_prof_app_vaka_item = $bog_prof_app_vaka_item;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        const AREA_MAP = {
+            Россия: '113',
+            Москва: '1',
+            'Санкт-Петербург': '2',
+        };
+        class $bog_prof_app_vaka extends $.$bog_prof_app_vaka {
+            query(next) {
+                return next ?? 'программист';
+            }
+            area_name(next) {
+                return next ?? 'Россия';
+            }
+            area_id() {
+                return AREA_MAP[this.area_name()] ?? '113';
+            }
+            search_trigger(next) {
+                return next ?? 0;
+            }
+            search(next) {
+                if (next !== undefined) {
+                    this.search_trigger(this.search_trigger() + 1);
+                }
+                return next;
+            }
+            vacancies_data() {
+                this.search_trigger();
+                const query = this.query();
+                const area = this.area_id();
+                if (!query || !query.trim()) {
+                    return { items: [], found: 0, pages: 0, page: 0, per_page: 0 };
+                }
+                const params = new URLSearchParams({
+                    text: query.trim(),
+                    area: area,
+                    per_page: '50',
+                    page: '0',
+                });
+                const url = `https://api.hh.ru/vacancies?${params.toString()}`;
+                try {
+                    const response = this.$.$mol_fetch.json(url, {
+                        headers: {
+                            'User-Agent': 'VibeJobs/1.0 (bog.prof.app)',
+                        },
+                    });
+                    return response;
+                }
+                catch (error) {
+                    console.error('Ошибка загрузки вакансий:', error);
+                    return { items: [], found: 0, pages: 0, page: 0, per_page: 0 };
+                }
+            }
+            vacancy_ids() {
+                try {
+                    const data = this.vacancies_data();
+                    if (!data || !data.items)
+                        return [];
+                    return data.items.map(v => v.id);
+                }
+                catch (error) {
+                    console.error('Ошибка при загрузке вакансий:', error);
+                    return [];
+                }
+            }
+            vacancy(id) {
+                try {
+                    const data = this.vacancies_data();
+                    if (!data || !data.items)
+                        return null;
+                    return data.items.find(v => v.id === id) ?? null;
+                }
+                catch (error) {
+                    console.error('Ошибка при получении вакансии:', error);
+                    return null;
+                }
+            }
+            vacancy_rows() {
+                const ids = this.vacancy_ids();
+                return ids.map(id => this.Row(id));
+            }
+            Row(id) {
+                const row = new this.$.$bog_prof_app_vaka_item();
+                row.vacancy = () => this.vacancy(id);
+                return row;
+            }
+            empty_message() {
+                const data = this.vacancies_data();
+                const query = this.query();
+                if (!query || !query.trim()) {
+                    return '👋 Введите поисковый запрос и нажмите "Найти" для поиска вакансий';
+                }
+                if (!data || data.items.length === 0) {
+                    return `😔 По запросу "${query}" ничего не найдено. Попробуйте изменить запрос или выбрать другой регион.`;
+                }
+                return '';
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_vaka.prototype, "query", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_vaka.prototype, "area_name", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_vaka.prototype, "area_id", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_vaka.prototype, "search_trigger", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_vaka.prototype, "vacancies_data", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_vaka.prototype, "vacancy_ids", null);
+        __decorate([
+            $mol_mem_key
+        ], $bog_prof_app_vaka.prototype, "vacancy", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_vaka.prototype, "vacancy_rows", null);
+        __decorate([
+            $mol_mem_key
+        ], $bog_prof_app_vaka.prototype, "Row", null);
+        __decorate([
+            $mol_mem
+        ], $bog_prof_app_vaka.prototype, "empty_message", null);
+        $$.$bog_prof_app_vaka = $bog_prof_app_vaka;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        $mol_style_define($bog_prof_app_vaka, {
+            flex: {
+                grow: 1,
+            },
+            Tools: {
+                padding: $mol_gap.block,
+                flex: {
+                    wrap: 'wrap',
+                },
+                gap: $mol_gap.text,
+            },
+            Query: {
+                flex: {
+                    grow: 1,
+                },
+                minWidth: '200px',
+            },
+            Area: {
+                minWidth: '150px',
+            },
+            Results: {
+                gap: $mol_gap.block,
+                padding: $mol_gap.block,
+            },
+            Credits: {
+                padding: $mol_gap.text,
+                textAlign: 'center',
+                opacity: 0.7,
+            },
+            Empty: {
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: $mol_gap.block,
+                minHeight: '300px',
+                gap: $mol_gap.block,
+            },
+            Empty_icon: {
+                fontSize: '4rem',
+                color: $mol_theme.shade,
+                opacity: 0.5,
+            },
+            Empty_message: {
+                textAlign: 'center',
+                color: $mol_theme.shade,
+                fontSize: '1.1rem',
+                maxWidth: '500px',
+                lineHeight: '1.6',
+            },
+        });
+        $mol_style_define($bog_prof_app_vaka_item, {
+            display: 'flex',
+            flexDirection: 'column',
+            padding: $mol_gap.block,
+            gap: $mol_gap.text,
+            background: {
+                color: $mol_theme.card,
+            },
+            border: {
+                radius: '8px',
+            },
+            boxShadow: `0 2px 12px rgba(0, 0, 0, 0.08)`,
+            transition: 'all 0.2s ease',
+            ':hover': {
+                boxShadow: `0 4px 16px rgba(0, 0, 0, 0.12)`,
+                transform: 'translateY(-2px)',
+            },
+            Title: {
+                fontSize: '1.25rem',
+                fontWeight: '600',
+                textDecoration: 'none',
+                lineHeight: '1.4',
+                ':hover': {
+                    textDecoration: 'underline',
+                },
+            },
+            Meta: {
+                fontSize: '0.9rem',
+                lineHeight: '1.5',
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '0.5rem',
+            },
+            Salary: {
+                fontWeight: '600',
+                fontSize: '1.1rem',
+                padding: [$mol_gap.text, 0],
+            },
+            Snippet: {
+                fontSize: '0.95rem',
+                lineHeight: '1.6',
+                whiteSpace: 'pre-wrap',
+            },
+        });
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
 
 ;
 	($.$bog_prof_app) = class $bog_prof_app extends ($.$mol_book2_catalog) {
@@ -12508,11 +13930,24 @@ var $;
 			(obj.Lights) = () => (null);
 			return obj;
 		}
+		Prof(){
+			const obj = new this.$.$bog_prof_app_prof();
+			return obj;
+		}
+		Settings(){
+			const obj = new this.$.$bog_prof_app_settings();
+			return obj;
+		}
+		Vaka(){
+			const obj = new this.$.$bog_prof_app_vaka();
+			return obj;
+		}
 		Placeholder(){
 			return null;
 		}
 		Menu_logo(){
-			const obj = new this.$.$mol_icon_newspaper();
+			const obj = new this.$.$mol_image();
+			(obj.uri) = () => ("/bog/prof/assets/job.png");
 			return obj;
 		}
 		menu_title(){
@@ -12525,12 +13960,20 @@ var $;
 			return [(this.Theme())];
 		}
 		spreads(){
-			return {"": (this.Bot())};
+			return {
+				"\t": (this.Bot()), 
+				"prof": (this.Prof()), 
+				"settings": (this.Settings()), 
+				"vaka": (this.Vaka())
+			};
 		}
 	};
 	($mol_mem(($.$bog_prof_app.prototype), "Lights"));
 	($mol_mem(($.$bog_prof_app.prototype), "Theme"));
 	($mol_mem(($.$bog_prof_app.prototype), "Bot"));
+	($mol_mem(($.$bog_prof_app.prototype), "Prof"));
+	($mol_mem(($.$bog_prof_app.prototype), "Settings"));
+	($mol_mem(($.$bog_prof_app.prototype), "Vaka"));
 	($mol_mem(($.$bog_prof_app.prototype), "Menu_logo"));
 
 
@@ -12551,6 +13994,16 @@ var $;
 
 ;
 "use strict";
+var $;
+(function ($) {
+    const { rem } = $mol_style_unit;
+    $mol_style_define($bog_prof_app, {
+        Menu_logo: {
+            height: rem(2),
+            width: rem(2),
+        },
+    });
+})($ || ($ = {}));
 
 
 export default $

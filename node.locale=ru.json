@@ -1,5 +1,18 @@
 {
 	"$bog_prof_app_menu_title": "Вайбовая Работа",
+	"$bog_prof_app_settings_Install_button_title": "Добавить на главный экран",
+	"$bog_prof_app_settings_Install_labeler_title": "Установить приложение",
+	"$bog_prof_app_settings_Language_labeler_title": "Язык интерфейса",
+	"$bog_prof_app_settings_install_already_installed": "Приложение уже установлено или установка не поддерживается.",
+	"$bog_prof_app_settings_install_android_instruction": "Чтобы добавить на главный экран в браузере Chrome, откройте меню (⋮) и выберите «Установить приложение».",
+	"$bog_prof_app_settings_install_desktop_instruction": "Чтобы установить приложение на компьютер, используйте кнопку установки в адресной строке или пункт меню браузера «Установить приложение».",
+	"$bog_prof_app_settings_install_ios_instruction": "Чтобы добавить на главный экран на iPhone или iPad, нажмите «Поделиться» и выберите «На экран Домой».",
+	"$bog_prof_app_settings_install_unsupported_browser": "Установка на главный экран не поддерживается в этом браузере.",
+	"$bog_prof_app_settings_title": "Настройки",
+	"$bog_prof_app_vaka_Credits_title": "Данные предоставлены HeadHunter API",
+	"$bog_prof_app_vaka_Query_hint": "Поисковый запрос",
+	"$bog_prof_app_vaka_Search_hint": "Найти",
+	"$bog_prof_app_vaka_title": "Вакансии HH.ru",
 	"$gd_bot_Context_title": "Резюме",
 	"$gd_bot_Prompt_submit_hint": "Отправить",
 	"$gd_bot_Prompt_text_hint": "Спроси что-нибудь",
@@ -12,6 +25,9 @@
 	"$mol_link_support_hint": "Обсудить проект",
 	"$mol_search_Clear_hint": "Очистить",
 	"$mol_search_hint": "Поиск..",
+	"$mol_select_filter_hint": "Фильтр..",
+	"$mol_select_hint": "Выбрать..",
+	"$mol_select_no_options_message": "Нет вариантов",
 	"$mol_text_code_Copy_hint": "Скопировать весь код",
 	"$mol_text_header_Link_hint": "Ссылка на эту секцию"
 }

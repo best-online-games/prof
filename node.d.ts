@@ -5256,13 +5256,1018 @@ declare namespace $.$$ {
 
 declare namespace $ {
 
-	export class $mol_icon_newspaper extends $mol_icon {
+	type $mol_list__rows_bog_prof_app_prof_1 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['prof_rows'] >
+		,
+		ReturnType< $mol_list['rows'] >
+	>
+	export class $bog_prof_app_prof extends $mol_page {
+		prof_rows( ): readonly(any)[]
+		Results( ): $mol_list
+		title( ): string
+		body( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=prof.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $bog_prof_app_prof extends $.$bog_prof_app_prof {
+        professions_by_category(): {
+            readonly ИТ: readonly ["Разработчик", "Тестировщик", "Аналитик", "DevOps"];
+            readonly Дизайн: readonly ["UI/UX дизайнер", "Графический дизайнер"];
+            readonly Маркетинг: readonly ["Маркетолог", "SMM-менеджер"];
+        };
+        prof_rows(): readonly any[];
+    }
+}
+
+declare namespace $ {
+
+	type $mol_check__minimal_width_mol_pick_1 = $mol_type_enforce<
+		number
+		,
+		ReturnType< $mol_check['minimal_width'] >
+	>
+	type $mol_check__minimal_height_mol_pick_2 = $mol_type_enforce<
+		number
+		,
+		ReturnType< $mol_check['minimal_height'] >
+	>
+	type $mol_check__enabled_mol_pick_3 = $mol_type_enforce<
+		ReturnType< $mol_pick['trigger_enabled'] >
+		,
+		ReturnType< $mol_check['enabled'] >
+	>
+	type $mol_check__checked_mol_pick_4 = $mol_type_enforce<
+		ReturnType< $mol_pick['showed'] >
+		,
+		ReturnType< $mol_check['checked'] >
+	>
+	type $mol_check__clicks_mol_pick_5 = $mol_type_enforce<
+		ReturnType< $mol_pick['clicks'] >
+		,
+		ReturnType< $mol_check['clicks'] >
+	>
+	type $mol_check__sub_mol_pick_6 = $mol_type_enforce<
+		ReturnType< $mol_pick['trigger_content'] >
+		,
+		ReturnType< $mol_check['sub'] >
+	>
+	type $mol_check__hint_mol_pick_7 = $mol_type_enforce<
+		ReturnType< $mol_pick['hint'] >
+		,
+		ReturnType< $mol_check['hint'] >
+	>
+	export class $mol_pick extends $mol_pop {
+		keydown( next?: any ): any
+		trigger_enabled( ): boolean
+		clicks( next?: any ): any
+		trigger_content( ): readonly($mol_view_content)[]
+		hint( ): string
+		Trigger( ): $mol_check
+		event( ): ({ 
+			keydown( next?: ReturnType< $mol_pick['keydown'] > ): ReturnType< $mol_pick['keydown'] >,
+		})  & ReturnType< $mol_pop['event'] >
+		Anchor( ): ReturnType< $mol_pick['Trigger'] >
+	}
+	
+}
+
+//# sourceMappingURL=pick.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_pick extends $.$mol_pick {
+        keydown(event: KeyboardEvent): void;
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
+
+	export class $mol_icon_dots_vertical extends $mol_icon {
 		path( ): string
 	}
 	
 }
 
-//# sourceMappingURL=newspaper.view.tree.d.ts.map
+//# sourceMappingURL=vertical.view.tree.d.ts.map
+declare namespace $ {
+
+	type $mol_dimmer__haystack_mol_select_1 = $mol_type_enforce<
+		ReturnType< $mol_select['option_label'] >
+		,
+		ReturnType< $mol_dimmer['haystack'] >
+	>
+	type $mol_dimmer__needle_mol_select_2 = $mol_type_enforce<
+		ReturnType< $mol_select['filter_pattern'] >
+		,
+		ReturnType< $mol_dimmer['needle'] >
+	>
+	type $mol_nav__keys_y_mol_select_3 = $mol_type_enforce<
+		ReturnType< $mol_select['nav_components'] >
+		,
+		ReturnType< $mol_nav['keys_y'] >
+	>
+	type $mol_nav__current_y_mol_select_4 = $mol_type_enforce<
+		ReturnType< $mol_select['option_focused'] >
+		,
+		ReturnType< $mol_nav['current_y'] >
+	>
+	type $mol_nav__cycle_mol_select_5 = $mol_type_enforce<
+		ReturnType< $mol_select['nav_cycle'] >
+		,
+		ReturnType< $mol_nav['cycle'] >
+	>
+	type $mol_list__rows_mol_select_6 = $mol_type_enforce<
+		ReturnType< $mol_select['menu_content'] >
+		,
+		ReturnType< $mol_list['rows'] >
+	>
+	type $mol_scroll__sub_mol_select_7 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_scroll['sub'] >
+	>
+	type $mol_button_minor__enabled_mol_select_8 = $mol_type_enforce<
+		ReturnType< $mol_select['enabled'] >
+		,
+		ReturnType< $mol_button_minor['enabled'] >
+	>
+	type $mol_button_minor__event_click_mol_select_9 = $mol_type_enforce<
+		ReturnType< $mol_select['event_select'] >
+		,
+		ReturnType< $mol_button_minor['event_click'] >
+	>
+	type $mol_button_minor__sub_mol_select_10 = $mol_type_enforce<
+		ReturnType< $mol_select['option_content'] >
+		,
+		ReturnType< $mol_button_minor['sub'] >
+	>
+	type $mol_view__sub_mol_select_11 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_search__query_mol_select_12 = $mol_type_enforce<
+		ReturnType< $mol_select['filter_pattern'] >
+		,
+		ReturnType< $mol_search['query'] >
+	>
+	type $mol_search__hint_mol_select_13 = $mol_type_enforce<
+		ReturnType< $mol_select['filter_hint'] >
+		,
+		ReturnType< $mol_search['hint'] >
+	>
+	type $mol_search__submit_mol_select_14 = $mol_type_enforce<
+		ReturnType< $mol_select['submit'] >
+		,
+		ReturnType< $mol_search['submit'] >
+	>
+	type $mol_search__enabled_mol_select_15 = $mol_type_enforce<
+		ReturnType< $mol_select['enabled'] >
+		,
+		ReturnType< $mol_search['enabled'] >
+	>
+	export class $mol_select extends $mol_pick {
+		enabled( ): boolean
+		event_select( id: any, next?: any ): any
+		option_label( id: any): string
+		filter_pattern( next?: string ): string
+		Option_label( id: any): $mol_dimmer
+		option_content( id: any): readonly(any)[]
+		no_options_message( ): string
+		nav_components( ): readonly($mol_view)[]
+		option_focused( next?: any ): any
+		nav_cycle( next?: boolean ): boolean
+		Nav( ): $mol_nav
+		menu_content( ): readonly($mol_view)[]
+		Menu( ): $mol_list
+		Bubble_pane( ): $mol_scroll
+		filter_hint( ): string
+		submit( next?: any ): any
+		dictionary( next?: Record<string, any> ): Record<string, any>
+		options( ): readonly(string)[]
+		value( next?: string ): string
+		option_label_default( ): string
+		Option_row( id: any): $mol_button_minor
+		No_options( ): $mol_view
+		plugins( ): readonly(any)[]
+		hint( ): string
+		bubble_content( ): readonly(any)[]
+		Filter( ): $mol_search
+		Trigger_icon( ): $mol_icon_dots_vertical
+	}
+	
+}
+
+//# sourceMappingURL=select.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_select extends $.$mol_select {
+        filter_pattern(next?: string): string;
+        open(): void;
+        options(): readonly string[];
+        options_filtered(): readonly string[];
+        option_label(id: string): any;
+        option_rows(): $mol_button_minor[];
+        option_focused(component?: $mol_view): $mol_view | $.$mol_search | null;
+        event_select(id: string, event?: MouseEvent): void;
+        nav_components(): ($.$mol_search | $mol_button_minor)[];
+        trigger_content(): readonly $mol_view_content[];
+        menu_content(): $mol_view[];
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
+    const $mol_lang_iso639: {
+        ab: string;
+        aa: string;
+        af: string;
+        ak: string;
+        sq: string;
+        am: string;
+        ar: string;
+        an: string;
+        hy: string;
+        as: string;
+        av: string;
+        ae: string;
+        ay: string;
+        az: string;
+        bm: string;
+        ba: string;
+        eu: string;
+        be: string;
+        bn: string;
+        bi: string;
+        nb: string;
+        bs: string;
+        br: string;
+        bg: string;
+        my: string;
+        ca: string;
+        ch: string;
+        ce: string;
+        zh: string;
+        cu: string;
+        cv: string;
+        kw: string;
+        co: string;
+        cr: string;
+        hr: string;
+        cs: string;
+        da: string;
+        dv: string;
+        nl: string;
+        dz: string;
+        en: string;
+        eo: string;
+        et: string;
+        ee: string;
+        fo: string;
+        fj: string;
+        fi: string;
+        fr: string;
+        fy: string;
+        ff: string;
+        gd: string;
+        gl: string;
+        lg: string;
+        ka: string;
+        de: string;
+        el: string;
+        gn: string;
+        gu: string;
+        ht: string;
+        ha: string;
+        he: string;
+        hz: string;
+        hi: string;
+        ho: string;
+        hu: string;
+        is: string;
+        io: string;
+        ig: string;
+        id: string;
+        ia: string;
+        ie: string;
+        iu: string;
+        ik: string;
+        ga: string;
+        it: string;
+        ja: string;
+        jv: string;
+        kl: string;
+        kn: string;
+        kr: string;
+        ks: string;
+        kk: string;
+        km: string;
+        ki: string;
+        rw: string;
+        ky: string;
+        kv: string;
+        kg: string;
+        ko: string;
+        kj: string;
+        ku: string;
+        lo: string;
+        la: string;
+        lv: string;
+        li: string;
+        ln: string;
+        lt: string;
+        lu: string;
+        lb: string;
+        mk: string;
+        mg: string;
+        ms: string;
+        ml: string;
+        mt: string;
+        gv: string;
+        mi: string;
+        mr: string;
+        mh: string;
+        mn: string;
+        na: string;
+        nv: string;
+        nd: string;
+        ng: string;
+        ne: string;
+        no: string;
+        ny: string;
+        nn: string;
+        oc: string;
+        oj: string;
+        or: string;
+        om: string;
+        os: string;
+        pi: string;
+        ps: string;
+        fa: string;
+        pl: string;
+        pt: string;
+        pa: string;
+        qu: string;
+        ro: string;
+        rm: string;
+        rn: string;
+        ru: string;
+        se: string;
+        sm: string;
+        sg: string;
+        sa: string;
+        sc: string;
+        sr: string;
+        sn: string;
+        ii: string;
+        sd: string;
+        si: string;
+        sk: string;
+        sl: string;
+        so: string;
+        st: string;
+        nr: string;
+        es: string;
+        su: string;
+        sw: string;
+        ss: string;
+        sv: string;
+        tl: string;
+        ty: string;
+        tg: string;
+        ta: string;
+        tt: string;
+        te: string;
+        th: string;
+        bo: string;
+        ti: string;
+        to: string;
+        ts: string;
+        tn: string;
+        tr: string;
+        tk: string;
+        tw: string;
+        ug: string;
+        uk: string;
+        ur: string;
+        uz: string;
+        ve: string;
+        vi: string;
+        vo: string;
+        wa: string;
+        cy: string;
+        wo: string;
+        xh: string;
+        yi: string;
+        yo: string;
+        za: string;
+        zu: string;
+    };
+}
+
+declare namespace $ {
+
+	export class $mol_locale_select extends $mol_select {
+	}
+	
+}
+
+//# sourceMappingURL=select.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_locale_select extends $.$mol_locale_select {
+        value(next?: string): string;
+        dictionary(): {
+            ab: string;
+            aa: string;
+            af: string;
+            ak: string;
+            sq: string;
+            am: string;
+            ar: string;
+            an: string;
+            hy: string;
+            as: string;
+            av: string;
+            ae: string;
+            ay: string;
+            az: string;
+            bm: string;
+            ba: string;
+            eu: string;
+            be: string;
+            bn: string;
+            bi: string;
+            nb: string;
+            bs: string;
+            br: string;
+            bg: string;
+            my: string;
+            ca: string;
+            ch: string;
+            ce: string;
+            zh: string;
+            cu: string;
+            cv: string;
+            kw: string;
+            co: string;
+            cr: string;
+            hr: string;
+            cs: string;
+            da: string;
+            dv: string;
+            nl: string;
+            dz: string;
+            en: string;
+            eo: string;
+            et: string;
+            ee: string;
+            fo: string;
+            fj: string;
+            fi: string;
+            fr: string;
+            fy: string;
+            ff: string;
+            gd: string;
+            gl: string;
+            lg: string;
+            ka: string;
+            de: string;
+            el: string;
+            gn: string;
+            gu: string;
+            ht: string;
+            ha: string;
+            he: string;
+            hz: string;
+            hi: string;
+            ho: string;
+            hu: string;
+            is: string;
+            io: string;
+            ig: string;
+            id: string;
+            ia: string;
+            ie: string;
+            iu: string;
+            ik: string;
+            ga: string;
+            it: string;
+            ja: string;
+            jv: string;
+            kl: string;
+            kn: string;
+            kr: string;
+            ks: string;
+            kk: string;
+            km: string;
+            ki: string;
+            rw: string;
+            ky: string;
+            kv: string;
+            kg: string;
+            ko: string;
+            kj: string;
+            ku: string;
+            lo: string;
+            la: string;
+            lv: string;
+            li: string;
+            ln: string;
+            lt: string;
+            lu: string;
+            lb: string;
+            mk: string;
+            mg: string;
+            ms: string;
+            ml: string;
+            mt: string;
+            gv: string;
+            mi: string;
+            mr: string;
+            mh: string;
+            mn: string;
+            na: string;
+            nv: string;
+            nd: string;
+            ng: string;
+            ne: string;
+            no: string;
+            ny: string;
+            nn: string;
+            oc: string;
+            oj: string;
+            or: string;
+            om: string;
+            os: string;
+            pi: string;
+            ps: string;
+            fa: string;
+            pl: string;
+            pt: string;
+            pa: string;
+            qu: string;
+            ro: string;
+            rm: string;
+            rn: string;
+            ru: string;
+            se: string;
+            sm: string;
+            sg: string;
+            sa: string;
+            sc: string;
+            sr: string;
+            sn: string;
+            ii: string;
+            sd: string;
+            si: string;
+            sk: string;
+            sl: string;
+            so: string;
+            st: string;
+            nr: string;
+            es: string;
+            su: string;
+            sw: string;
+            ss: string;
+            sv: string;
+            tl: string;
+            ty: string;
+            tg: string;
+            ta: string;
+            tt: string;
+            te: string;
+            th: string;
+            bo: string;
+            ti: string;
+            to: string;
+            ts: string;
+            tn: string;
+            tr: string;
+            tk: string;
+            tw: string;
+            ug: string;
+            uk: string;
+            ur: string;
+            uz: string;
+            ve: string;
+            vi: string;
+            vo: string;
+            wa: string;
+            cy: string;
+            wo: string;
+            xh: string;
+            yi: string;
+            yo: string;
+            za: string;
+            zu: string;
+        };
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
+
+	type $mol_view__minimal_height_mol_labeler_1 = $mol_type_enforce<
+		number
+		,
+		ReturnType< $mol_view['minimal_height'] >
+	>
+	type $mol_view__sub_mol_labeler_2 = $mol_type_enforce<
+		ReturnType< $mol_labeler['label'] >
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_view__minimal_height_mol_labeler_3 = $mol_type_enforce<
+		number
+		,
+		ReturnType< $mol_view['minimal_height'] >
+	>
+	type $mol_view__sub_mol_labeler_4 = $mol_type_enforce<
+		ReturnType< $mol_labeler['content'] >
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	export class $mol_labeler extends $mol_list {
+		label( ): readonly($mol_view_content)[]
+		Label( ): $mol_view
+		content( ): readonly(any)[]
+		Content( ): $mol_view
+		rows( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=labeler.view.tree.d.ts.map
+declare namespace $ {
+}
+
+declare namespace $ {
+
+	export class $mol_button_major extends $mol_button_minor {
+		theme( ): string
+	}
+	
+}
+
+//# sourceMappingURL=major.view.tree.d.ts.map
+declare namespace $ {
+
+	type $mol_locale_select__dictionary_bog_prof_app_settings_1 = $mol_type_enforce<
+		({ 
+			'ru': string,
+			'en': string,
+			'de': string,
+		}) 
+		,
+		ReturnType< $mol_locale_select['dictionary'] >
+	>
+	type $mol_labeler__title_bog_prof_app_settings_2 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_labeler['title'] >
+	>
+	type $mol_labeler__content_bog_prof_app_settings_3 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_labeler['content'] >
+	>
+	type $mol_button_major__title_bog_prof_app_settings_4 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_button_major['title'] >
+	>
+	type $mol_button_major__click_bog_prof_app_settings_5 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_settings['install'] >
+		,
+		ReturnType< $mol_button_major['click'] >
+	>
+	type $mol_labeler__title_bog_prof_app_settings_6 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_labeler['title'] >
+	>
+	type $mol_labeler__content_bog_prof_app_settings_7 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_labeler['content'] >
+	>
+	export class $bog_prof_app_settings extends $mol_page {
+		Language_select( ): $mol_locale_select
+		Language_labeler( ): $mol_labeler
+		install( next?: any ): any
+		Install_button( ): $mol_button_major
+		Install_labeler( ): $mol_labeler
+		title( ): string
+		body( ): readonly(any)[]
+		install_ios_instruction( ): string
+		install_android_instruction( ): string
+		install_desktop_instruction( ): string
+		install_unsupported_browser( ): string
+		install_already_installed( ): string
+	}
+	
+}
+
+//# sourceMappingURL=settings.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $bog_prof_app_settings extends $.$bog_prof_app_settings {
+        private deferredPrompt;
+        auto(): void;
+        install(): void;
+    }
+}
+
+declare namespace $ {
+
+	export class $mol_icon_magnify extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=magnify.view.tree.d.ts.map
+declare namespace $ {
+}
+
+declare namespace $ {
+
+	export class $mol_bar extends $mol_view {
+	}
+	
+}
+
+//# sourceMappingURL=bar.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_icon_information extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=information.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_icon_information_outline extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=outline.view.tree.d.ts.map
+declare namespace $ {
+
+	type $mol_view__sub_mol_card_1 = $mol_type_enforce<
+		ReturnType< $mol_card['content'] >
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_view__minimal_height_mol_card_2 = $mol_type_enforce<
+		number
+		,
+		ReturnType< $mol_view['minimal_height'] >
+	>
+	type $mol_view__sub_mol_card_3 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	export class $mol_card extends $mol_list {
+		status( ): string
+		content( ): readonly($mol_view_content)[]
+		Content( ): $mol_view
+		status_text( ): ReturnType< $mol_card['status'] >
+		Status( ): $mol_view
+		attr( ): ({ 
+			'mol_card_status_type': ReturnType< $mol_card['status'] >,
+		})  & ReturnType< $mol_list['attr'] >
+		rows( ): readonly($mol_view)[]
+	}
+	
+}
+
+//# sourceMappingURL=card.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_card extends $.$mol_card {
+        rows(): readonly $mol_view[];
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
+
+	type $mol_link__title_bog_prof_app_vaka_item_1 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_vaka_item['title'] >
+		,
+		ReturnType< $mol_link['title'] >
+	>
+	type $mol_link__uri_bog_prof_app_vaka_item_2 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_vaka_item['url'] >
+		,
+		ReturnType< $mol_link['uri'] >
+	>
+	type $mol_text__text_bog_prof_app_vaka_item_3 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_vaka_item['meta'] >
+		,
+		ReturnType< $mol_text['text'] >
+	>
+	type $mol_text__text_bog_prof_app_vaka_item_4 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_vaka_item['salary'] >
+		,
+		ReturnType< $mol_text['text'] >
+	>
+	type $mol_text__text_bog_prof_app_vaka_item_5 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_vaka_item['snippet'] >
+		,
+		ReturnType< $mol_text['text'] >
+	>
+	export class $bog_prof_app_vaka_item extends $mol_card {
+		title( next?: string ): string
+		url( next?: string ): string
+		Title( ): $mol_link
+		meta( next?: string ): string
+		Meta( ): $mol_text
+		salary( next?: string ): string
+		Salary( ): $mol_text
+		snippet( next?: string ): string
+		Snippet( ): $mol_text
+		vacancy( ): any
+		sub( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=item.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $bog_prof_app_vaka_item extends $.$bog_prof_app_vaka_item {
+        vacancy(next?: any): any;
+        title(): string;
+        url(): string;
+        meta(): string;
+        salary(): string;
+        currency_symbol(code: string): string;
+        snippet(): string;
+        clean_html(text: string): string;
+    }
+}
+
+declare namespace $ {
+
+	type $mol_string__hint_bog_prof_app_vaka_1 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_string['hint'] >
+	>
+	type $mol_string__value_bog_prof_app_vaka_2 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_vaka['query'] >
+		,
+		ReturnType< $mol_string['value'] >
+	>
+	type $mol_select__options_bog_prof_app_vaka_3 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_select['options'] >
+	>
+	type $mol_select__value_bog_prof_app_vaka_4 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_vaka['area_name'] >
+		,
+		ReturnType< $mol_select['value'] >
+	>
+	type $mol_button_minor__hint_bog_prof_app_vaka_5 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_button_minor['hint'] >
+	>
+	type $mol_button_minor__click_bog_prof_app_vaka_6 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_vaka['search'] >
+		,
+		ReturnType< $mol_button_minor['click'] >
+	>
+	type $mol_button_minor__sub_bog_prof_app_vaka_7 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_button_minor['sub'] >
+	>
+	type $mol_bar__sub_bog_prof_app_vaka_8 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_bar['sub'] >
+	>
+	type $mol_list__rows_bog_prof_app_vaka_9 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_vaka['vacancy_rows'] >
+		,
+		ReturnType< $mol_list['rows'] >
+	>
+	type $mol_text__text_bog_prof_app_vaka_10 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_vaka['empty_message'] >
+		,
+		ReturnType< $mol_text['text'] >
+	>
+	type $mol_view__sub_bog_prof_app_vaka_11 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_link__uri_bog_prof_app_vaka_12 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_link['uri'] >
+	>
+	type $mol_link__title_bog_prof_app_vaka_13 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_link['title'] >
+	>
+	export class $bog_prof_app_vaka extends $mol_page {
+		query( next?: string ): string
+		Query( ): $mol_string
+		area_name( next?: string ): string
+		Area( ): $mol_select
+		Search_icon( ): $mol_icon_magnify
+		Search( ): $mol_button_minor
+		Tools( ): $mol_bar
+		vacancy_rows( ): readonly(any)[]
+		Results( ): $mol_list
+		Empty_icon( ): $mol_icon_information_outline
+		empty_message( ): string
+		Empty_message( ): $mol_text
+		Empty( ): $mol_view
+		Credits( ): $mol_link
+		search( next?: any ): any
+		title( ): string
+		tools( ): readonly(any)[]
+		body( ): readonly(any)[]
+		foot( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=vaka.view.tree.d.ts.map
+declare namespace $.$$ {
+    interface HHVacancy {
+        id: string;
+        name: string;
+        alternate_url: string;
+        salary: {
+            from: number | null;
+            to: number | null;
+            currency: string;
+            gross?: boolean;
+        } | null;
+        employer: {
+            name: string;
+            alternate_url?: string;
+        };
+        area: {
+            name: string;
+        };
+        snippet: {
+            requirement: string | null;
+            responsibility: string | null;
+        } | null;
+        published_at: string;
+        schedule?: {
+            name: string;
+        };
+        experience?: {
+            name: string;
+        };
+    }
+    interface HHSearchResponse {
+        items: HHVacancy[];
+        found: number;
+        pages: number;
+        page: number;
+        per_page: number;
+    }
+    export class $bog_prof_app_vaka extends $.$bog_prof_app_vaka {
+        query(next?: string): string;
+        area_name(next?: string): string;
+        area_id(): string;
+        search_trigger(next?: number): number;
+        search(next?: any): any;
+        vacancies_data(): HHSearchResponse | null;
+        vacancy_ids(): string[];
+        vacancy(id: string): HHVacancy | null;
+        vacancy_rows(): readonly any[];
+        Row(id: string): $bog_prof_app_vaka_item;
+        empty_message(): string;
+    }
+    export {};
+}
+
+declare namespace $.$$ {
+}
+
 declare namespace $ {
 
 	type $gd_bot__Space_bog_prof_app_1 = $mol_type_enforce<
@@ -5290,17 +6295,28 @@ declare namespace $ {
 		,
 		ReturnType< $gd_bot['Lights'] >
 	>
+	type $mol_image__uri_bog_prof_app_6 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_image['uri'] >
+	>
 	export class $bog_prof_app extends $mol_book2_catalog {
 		Lights( ): $mol_lights_toggle
 		Theme( ): $bog_prof_theme_auto
 		Bot( ): $gd_bot
+		Prof( ): $bog_prof_app_prof
+		Settings( ): $bog_prof_app_settings
+		Vaka( ): $bog_prof_app_vaka
 		Placeholder( ): any
-		Menu_logo( ): $mol_icon_newspaper
+		Menu_logo( ): $mol_image
 		menu_title( ): string
 		menu_tools( ): readonly(any)[]
 		plugins( ): readonly(any)[]
 		spreads( ): ({ 
-			'': ReturnType< $bog_prof_app['Bot'] >,
+			'	': ReturnType< $bog_prof_app['Bot'] >,
+			'prof': ReturnType< $bog_prof_app['Prof'] >,
+			'settings': ReturnType< $bog_prof_app['Settings'] >,
+			'vaka': ReturnType< $bog_prof_app['Vaka'] >,
 		}) 
 	}
 	
@@ -5310,6 +6326,9 @@ declare namespace $ {
 declare namespace $.$$ {
     class $bog_prof_app extends $.$bog_prof_app {
     }
+}
+
+declare namespace $ {
 }
 
 export = $;
