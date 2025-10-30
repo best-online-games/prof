@@ -14015,8 +14015,26 @@ var $;
                 const url = `https://api.hh.ru/vacancies?${params.toString()}`;
                 try {
                     this.loading_status('⏳ Загрузка...');
-                    const response = this.$.$mol_fetch.json(url);
-                    console.log(`🌐 Загружено ${response.items.length} вакансий с API HH.ru`);
+                    console.log('🔍 [FETCH] Запрос вакансий:', {
+                        url,
+                        query: query.trim(),
+                        area: this.area_name(),
+                        cache: 'force-cache',
+                        timestamp: new Date().toISOString(),
+                    });
+                    const startTime = performance.now();
+                    const response = this.$.$mol_fetch.json(url, {
+                        cache: 'force-cache',
+                    });
+                    const endTime = performance.now();
+                    const duration = Math.round(endTime - startTime);
+                    console.log('✅ [CACHE] Получен ответ:', {
+                        items: response.items.length,
+                        found: response.found,
+                        duration: `${duration}ms`,
+                        source: duration < 50 ? '💾 from cache' : '🌐 from network',
+                        timestamp: new Date().toISOString(),
+                    });
                     this.loading_status(null);
                     return response;
                 }
@@ -14024,7 +14042,12 @@ var $;
                     if (error && typeof error === 'object' && 'message' in error) {
                         const errMsg = error.message || '';
                         if (!errMsg.includes('aborted')) {
-                            console.error('❌ Ошибка загрузки с API:', errMsg);
+                            console.error('❌ [FETCH] Ошибка загрузки с API:', {
+                                url,
+                                query: query.trim(),
+                                error: errMsg,
+                                timestamp: new Date().toISOString(),
+                            });
                         }
                     }
                     this.loading_status(null);
