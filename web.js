@@ -12176,36 +12176,100 @@ var $;
 			(obj.body) = () => ([(this.Devops_gallery())]);
 			return obj;
 		}
+		All_icon_path(id){
+			return "";
+		}
+		All_icon(id){
+			const obj = new this.$.$mol_icon();
+			(obj.path) = () => ((this.All_icon_path(id)));
+			return obj;
+		}
 		all_title(id){
 			return "";
 		}
-		All_item_label(id){
-			const obj = new this.$.$mol_dimmer();
-			(obj.title) = () => ((this.all_title(id)));
+		All_title_view(id){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.all_title(id))]);
+			return obj;
+		}
+		all_description(id){
+			return "";
+		}
+		All_descr_view(id){
+			const obj = new this.$.$mol_text();
+			(obj.text) = () => ((this.all_description(id)));
+			return obj;
+		}
+		Dev_icon_path(id){
+			return "";
+		}
+		Dev_icon(id){
+			const obj = new this.$.$mol_icon();
+			(obj.path) = () => ((this.Dev_icon_path(id)));
 			return obj;
 		}
 		dev_title(id){
 			return "";
 		}
-		Dev_item_label(id){
-			const obj = new this.$.$mol_dimmer();
-			(obj.title) = () => ((this.dev_title(id)));
+		Dev_title_view(id){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.dev_title(id))]);
+			return obj;
+		}
+		dev_description(id){
+			return "";
+		}
+		Dev_descr_view(id){
+			const obj = new this.$.$mol_text();
+			(obj.text) = () => ((this.dev_description(id)));
+			return obj;
+		}
+		Design_icon_path(id){
+			return "";
+		}
+		Design_icon(id){
+			const obj = new this.$.$mol_icon();
+			(obj.path) = () => ((this.Design_icon_path(id)));
 			return obj;
 		}
 		design_title(id){
 			return "";
 		}
-		Design_item_label(id){
-			const obj = new this.$.$mol_dimmer();
-			(obj.title) = () => ((this.design_title(id)));
+		Design_title_view(id){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.design_title(id))]);
+			return obj;
+		}
+		design_description(id){
+			return "";
+		}
+		Design_descr_view(id){
+			const obj = new this.$.$mol_text();
+			(obj.text) = () => ((this.design_description(id)));
+			return obj;
+		}
+		Devops_icon_path(id){
+			return "";
+		}
+		Devops_icon(id){
+			const obj = new this.$.$mol_icon();
+			(obj.path) = () => ((this.Devops_icon_path(id)));
 			return obj;
 		}
 		devops_title(id){
 			return "";
 		}
-		Devops_item_label(id){
-			const obj = new this.$.$mol_dimmer();
-			(obj.title) = () => ((this.devops_title(id)));
+		Devops_title_view(id){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.devops_title(id))]);
+			return obj;
+		}
+		devops_description(id){
+			return "";
+		}
+		Devops_descr_view(id){
+			const obj = new this.$.$mol_text();
+			(obj.text) = () => ((this.devops_description(id)));
 			return obj;
 		}
 		menu_title(){
@@ -12221,22 +12285,38 @@ var $;
 		}
 		All_item(id){
 			const obj = new this.$.$mol_card();
-			(obj.sub) = () => ([(this.All_item_label(id))]);
+			(obj.sub) = () => ([
+				(this.All_icon(id)), 
+				(this.All_title_view(id)), 
+				(this.All_descr_view(id))
+			]);
 			return obj;
 		}
 		Dev_item(id){
 			const obj = new this.$.$mol_card();
-			(obj.sub) = () => ([(this.Dev_item_label(id))]);
+			(obj.sub) = () => ([
+				(this.Dev_icon(id)), 
+				(this.Dev_title_view(id)), 
+				(this.Dev_descr_view(id))
+			]);
 			return obj;
 		}
 		Design_item(id){
 			const obj = new this.$.$mol_card();
-			(obj.sub) = () => ([(this.Design_item_label(id))]);
+			(obj.sub) = () => ([
+				(this.Design_icon(id)), 
+				(this.Design_title_view(id)), 
+				(this.Design_descr_view(id))
+			]);
 			return obj;
 		}
 		Devops_item(id){
 			const obj = new this.$.$mol_card();
-			(obj.sub) = () => ([(this.Devops_item_label(id))]);
+			(obj.sub) = () => ([
+				(this.Devops_icon(id)), 
+				(this.Devops_title_view(id)), 
+				(this.Devops_descr_view(id))
+			]);
 			return obj;
 		}
 	};
@@ -12248,10 +12328,18 @@ var $;
 	($mol_mem(($.$bog_prof_app_prof.prototype), "Design"));
 	($mol_mem(($.$bog_prof_app_prof.prototype), "Devops_gallery"));
 	($mol_mem(($.$bog_prof_app_prof.prototype), "DevOps"));
-	($mol_mem_key(($.$bog_prof_app_prof.prototype), "All_item_label"));
-	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Dev_item_label"));
-	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Design_item_label"));
-	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Devops_item_label"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "All_icon"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "All_title_view"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "All_descr_view"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Dev_icon"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Dev_title_view"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Dev_descr_view"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Design_icon"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Design_title_view"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Design_descr_view"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Devops_icon"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Devops_title_view"));
+	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Devops_descr_view"));
 	($mol_mem_key(($.$bog_prof_app_prof.prototype), "All_item"));
 	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Dev_item"));
 	($mol_mem_key(($.$bog_prof_app_prof.prototype), "Design_item"));
@@ -12304,12 +12392,7 @@ var $;
                 return this.dev_titles().map((_, i) => this.Dev_item(i));
             }
             design_titles() {
-                return [
-                    'UI/UX Designer',
-                    'Product Designer',
-                    'Graphic Designer',
-                    'Motion Designer',
-                ];
+                return ['UI/UX Designer', 'Product Designer', 'Graphic Designer', 'Motion Designer'];
             }
             design_title(id) {
                 return this.design_titles()[id] ?? '';
@@ -12318,12 +12401,7 @@ var $;
                 return this.design_titles().map((_, i) => this.Design_item(i));
             }
             devops_titles() {
-                return [
-                    'DevOps Engineer',
-                    'Site Reliability Engineer',
-                    'Cloud Engineer',
-                    'Platform Engineer',
-                ];
+                return ['DevOps Engineer', 'Site Reliability Engineer', 'Cloud Engineer', 'Platform Engineer'];
             }
             devops_title(id) {
                 return this.devops_titles()[id] ?? '';
@@ -12370,6 +12448,105 @@ var $;
             $mol_mem
         ], $bog_prof_app_prof.prototype, "All_gallery_items", null);
         $$.$bog_prof_app_prof = $bog_prof_app_prof;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        $mol_style_define($bog_prof_app_prof, {
+            All_item: {
+                padding: $mol_gap.block,
+                flex: {
+                    grow: 1,
+                    shrink: 1,
+                    basis: '18rem',
+                },
+                border: {
+                    radius: $mol_gap.round,
+                },
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                background: {
+                    color: $mol_theme.card,
+                },
+                gap: $mol_gap.space,
+                cursor: 'pointer',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                ':hover': {
+                    transform: 'translateY(-8px)',
+                    boxShadow: '0 12px 24px rgba(0,0,0,0.15)',
+                },
+            },
+            Dev_item: {
+                padding: $mol_gap.block,
+                flex: {
+                    grow: 1,
+                    shrink: 1,
+                    basis: '18rem',
+                },
+                border: {
+                    radius: $mol_gap.round,
+                },
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                background: {
+                    color: $mol_theme.card,
+                },
+                gap: $mol_gap.space,
+                cursor: 'pointer',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                ':hover': {
+                    transform: 'translateY(-8px)',
+                    boxShadow: '0 12px 24px rgba(0,0,0,0.15)',
+                },
+            },
+            Design_item: {
+                padding: $mol_gap.block,
+                flex: {
+                    grow: 1,
+                    shrink: 1,
+                    basis: '18rem',
+                },
+                border: {
+                    radius: $mol_gap.round,
+                },
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                background: {
+                    color: $mol_theme.card,
+                },
+                gap: $mol_gap.space,
+                cursor: 'pointer',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                ':hover': {
+                    transform: 'translateY(-8px)',
+                    boxShadow: '0 12px 24px rgba(0,0,0,0.15)',
+                },
+            },
+            Devops_item: {
+                padding: $mol_gap.block,
+                flex: {
+                    grow: 1,
+                    shrink: 1,
+                    basis: '18rem',
+                },
+                border: {
+                    radius: $mol_gap.round,
+                },
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                background: {
+                    color: $mol_theme.card,
+                },
+                gap: $mol_gap.space,
+                cursor: 'pointer',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                ':hover': {
+                    transform: 'translateY(-8px)',
+                    boxShadow: '0 12px 24px rgba(0,0,0,0.15)',
+                },
+            },
+        });
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));
 

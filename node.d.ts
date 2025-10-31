@@ -5393,42 +5393,82 @@ declare namespace $ {
 		,
 		ReturnType< $mol_page['body'] >
 	>
-	type $mol_dimmer__title_bog_prof_app_prof_13 = $mol_type_enforce<
-		ReturnType< $bog_prof_app_prof['all_title'] >
+	type $mol_icon__path_bog_prof_app_prof_13 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['All_icon_path'] >
 		,
-		ReturnType< $mol_dimmer['title'] >
+		ReturnType< $mol_icon['path'] >
 	>
-	type $mol_dimmer__title_bog_prof_app_prof_14 = $mol_type_enforce<
-		ReturnType< $bog_prof_app_prof['dev_title'] >
+	type $mol_view__sub_bog_prof_app_prof_14 = $mol_type_enforce<
+		readonly(any)[]
 		,
-		ReturnType< $mol_dimmer['title'] >
+		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_dimmer__title_bog_prof_app_prof_15 = $mol_type_enforce<
-		ReturnType< $bog_prof_app_prof['design_title'] >
+	type $mol_text__text_bog_prof_app_prof_15 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['all_description'] >
 		,
-		ReturnType< $mol_dimmer['title'] >
+		ReturnType< $mol_text['text'] >
 	>
-	type $mol_dimmer__title_bog_prof_app_prof_16 = $mol_type_enforce<
-		ReturnType< $bog_prof_app_prof['devops_title'] >
+	type $mol_icon__path_bog_prof_app_prof_16 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['Dev_icon_path'] >
 		,
-		ReturnType< $mol_dimmer['title'] >
+		ReturnType< $mol_icon['path'] >
 	>
-	type $mol_card__sub_bog_prof_app_prof_17 = $mol_type_enforce<
+	type $mol_view__sub_bog_prof_app_prof_17 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_text__text_bog_prof_app_prof_18 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['dev_description'] >
+		,
+		ReturnType< $mol_text['text'] >
+	>
+	type $mol_icon__path_bog_prof_app_prof_19 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['Design_icon_path'] >
+		,
+		ReturnType< $mol_icon['path'] >
+	>
+	type $mol_view__sub_bog_prof_app_prof_20 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_text__text_bog_prof_app_prof_21 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['design_description'] >
+		,
+		ReturnType< $mol_text['text'] >
+	>
+	type $mol_icon__path_bog_prof_app_prof_22 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['Devops_icon_path'] >
+		,
+		ReturnType< $mol_icon['path'] >
+	>
+	type $mol_view__sub_bog_prof_app_prof_23 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_text__text_bog_prof_app_prof_24 = $mol_type_enforce<
+		ReturnType< $bog_prof_app_prof['devops_description'] >
+		,
+		ReturnType< $mol_text['text'] >
+	>
+	type $mol_card__sub_bog_prof_app_prof_25 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_card['sub'] >
 	>
-	type $mol_card__sub_bog_prof_app_prof_18 = $mol_type_enforce<
+	type $mol_card__sub_bog_prof_app_prof_26 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_card['sub'] >
 	>
-	type $mol_card__sub_bog_prof_app_prof_19 = $mol_type_enforce<
+	type $mol_card__sub_bog_prof_app_prof_27 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_card['sub'] >
 	>
-	type $mol_card__sub_bog_prof_app_prof_20 = $mol_type_enforce<
+	type $mol_card__sub_bog_prof_app_prof_28 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_card['sub'] >
@@ -5446,14 +5486,30 @@ declare namespace $ {
 		Devops_gallery_items( ): readonly($mol_view)[]
 		Devops_gallery( ): $mol_gallery
 		DevOps( ): $mol_page
+		All_icon_path( id: any): string
+		All_icon( id: any): $mol_icon
 		all_title( id: any): string
-		All_item_label( id: any): $mol_dimmer
+		All_title_view( id: any): $mol_view
+		all_description( id: any): string
+		All_descr_view( id: any): $mol_text
+		Dev_icon_path( id: any): string
+		Dev_icon( id: any): $mol_icon
 		dev_title( id: any): string
-		Dev_item_label( id: any): $mol_dimmer
+		Dev_title_view( id: any): $mol_view
+		dev_description( id: any): string
+		Dev_descr_view( id: any): $mol_text
+		Design_icon_path( id: any): string
+		Design_icon( id: any): $mol_icon
 		design_title( id: any): string
-		Design_item_label( id: any): $mol_dimmer
+		Design_title_view( id: any): $mol_view
+		design_description( id: any): string
+		Design_descr_view( id: any): $mol_text
+		Devops_icon_path( id: any): string
+		Devops_icon( id: any): $mol_icon
 		devops_title( id: any): string
-		Devops_item_label( id: any): $mol_dimmer
+		Devops_title_view( id: any): $mol_view
+		devops_description( id: any): string
+		Devops_descr_view( id: any): $mol_text
 		menu_title( ): string
 		spreads( ): ({ 
 			'': ReturnType< $bog_prof_app_prof['All'] >,
@@ -5489,6 +5545,9 @@ declare namespace $.$$ {
         all_title(id: number): string;
         All_gallery_items(): $.$mol_card[];
     }
+}
+
+declare namespace $.$$ {
 }
 
 declare namespace $ {
