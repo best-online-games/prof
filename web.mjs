@@ -13977,7 +13977,7 @@ var $;
 		}
 		Menu_logo(){
 			const obj = new this.$.$mol_image();
-			(obj.uri) = () => ("/bog/prof/assets/job.png");
+			(obj.uri) = () => ("bog/prof/assets/job.png");
 			return obj;
 		}
 		menu_title(){
