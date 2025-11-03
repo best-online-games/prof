@@ -854,7 +854,7 @@ $mol_text_list_item $mol_paragraph
 $gd_bot $mol_book2
 	Model? $mol_github_model
 		params * temperature 0
-		rules <= context <= rules \Ты - Гипер Бот, универсальный интеллектуальный ассистент. Пользователь присылает тебе запрос в виде JSON строки. Твоя задача сформировать максимально точный и лаконичный ответ на запрос без лишней информации, о которой пользователь не просил. Ответ должен быть представлен в виде JSON объекта, где в поле "response" должен находиться собственно ответ. В поле "confidence" отрази степень своей увернности в истинности ответа в диапазоне от 0 до 1. В поле "digest" должен находиться краткий пересказ всего вашего диалога от начала до конца. Говоря о пользователе в пересказе (и только в нём) используй эмодзи 🙂 вместо слова "пользователь", а вместо "Гипер Бота" - используй эмозди 🤖. В поле "title" должно быть придумано лаконичное название, ёмко характеризующее всё обсуждение целиком. Отвечай всегда на языке с кодом {lang}, если пользователь не попросил иное. Далее идёт пересказ прошлых ваших сообщений, не потеряй его в своём пересказе:
+		rules <= context <= rules \Ты - Гипер Бот, универсальный интеллектуальный ассистент. Пользователь присылает тебе запрос в виде JSON строки. Твоя задача сформировать максимально точный и лаконичный ответ на запрос без лишней информации, о которой пользователь не просил. Ответ должен быть представлен в виде JSON объекта, где в поле "response" должен находиться собственно ответ в виде строки. В поле "confidence" отрази степень своей увернности в истинности ответа в диапазоне от 0 до 1. В поле "digest" должен находиться краткий пересказ всего вашего диалога от начала до конца. Говоря о пользователе в пересказе (и только в нём) используй эмодзи 🙂 вместо слова "пользователь", а вместо "Гипер Бота" - используй эмозди 🤖. В поле "title" должно быть придумано лаконичное название, ёмко характеризующее всё обсуждение целиком. Отвечай всегда на языке с кодом {lang}, если пользователь не попросил иное. Далее идёт пересказ прошлых ваших сообщений, не потеряй его в своём пересказе:
 	plugins /
 		<= Theme $mol_theme_auto
 	pages /
@@ -954,40 +954,60 @@ $bog_prof_app_prof $mol_book2_catalog
 					items <= Devops_gallery_items /$mol_view
 	All_item* $mol_card
 		sub /
-			<= All_icon* $mol_icon
-				path <= All_icon_path* \
-			<= All_title_view* $mol_view
+			<= All_link* $mol_link
+				uri <= All_item_uri* \
+				click?event <=> All_item_open*?event null
+				title null
 				sub /
-					<= all_title* \
-			<= All_descr_view* $mol_text
-				text <= all_description* \
+					<= All_icon* $mol_icon
+						path <= All_icon_path* \
+					<= All_title_view* $mol_view
+						sub /
+							<= all_title* \
+					<= All_descr_view* $mol_text
+						text <= all_description* \
 	Dev_item* $mol_card
 		sub /
-			<= Dev_icon* $mol_icon
-				path <= Dev_icon_path* \
-			<= Dev_title_view* $mol_view
+			<= Dev_link* $mol_link
+				uri <= Dev_item_uri* \
+				click?event <=> Dev_item_open*?event null
+				title null
 				sub /
-					<= dev_title* \
-			<= Dev_descr_view* $mol_text
-				text <= dev_description* \
+					<= Dev_icon* $mol_icon
+						path <= Dev_icon_path* \
+					<= Dev_title_view* $mol_view
+						sub /
+							<= dev_title* \
+					<= Dev_descr_view* $mol_text
+						text <= dev_description* \
 	Design_item* $mol_card
 		sub /
-			<= Design_icon* $mol_icon
-				path <= Design_icon_path* \
-			<= Design_title_view* $mol_view
+			<= Design_link* $mol_link
+				uri <= Design_item_uri* \
+				click?event <=> Design_item_open*?event null
+				title null
 				sub /
-					<= design_title* \
-			<= Design_descr_view* $mol_text
-				text <= design_description* \
+					<= Design_icon* $mol_icon
+						path <= Design_icon_path* \
+					<= Design_title_view* $mol_view
+						sub /
+							<= design_title* \
+					<= Design_descr_view* $mol_text
+						text <= design_description* \
 	Devops_item* $mol_card
 		sub /
-			<= Devops_icon* $mol_icon
-				path <= Devops_icon_path* \
-			<= Devops_title_view* $mol_view
+			<= Devops_link* $mol_link
+				uri <= Devops_item_uri* \
+				click?event <=> Devops_item_open*?event null
+				title null
 				sub /
-					<= devops_title* \
-			<= Devops_descr_view* $mol_text
-				text <= devops_description* \
+					<= Devops_icon* $mol_icon
+						path <= Devops_icon_path* \
+					<= Devops_title_view* $mol_view
+						sub /
+							<= devops_title* \
+					<= Devops_descr_view* $mol_text
+						text <= devops_description* \
 
 $mol_pick $mol_pop
 	event *
