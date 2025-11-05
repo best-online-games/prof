@@ -12821,6 +12821,9 @@ var $;
 			]);
 			return obj;
 		}
+		param(){
+			return "prof";
+		}
 		menu_title(){
 			return (this.$.$mol_locale.text("$bog_prof_app_prof_menu_title"));
 		}
@@ -12897,27 +12900,6 @@ var $;
     var $$;
     (function ($$) {
         class $bog_prof_app_prof extends $.$bog_prof_app_prof {
-            param() {
-                return 'book';
-            }
-            spread(next) {
-                const param = this.param();
-                if (next !== undefined) {
-                    const value = next ? `prof/${next}` : 'prof';
-                    this.$.$mol_state_arg.value(param, value);
-                    return next ?? '';
-                }
-                const raw = this.$.$mol_state_arg.value(param) ?? '';
-                const parts = String(raw).split('/');
-                if (parts[0] !== 'prof')
-                    return '';
-                return parts[1] ?? '';
-            }
-            arg(spread) {
-                const param = this.param();
-                const value = spread ? `prof/${spread}` : 'prof';
-                return { [param]: value || null };
-            }
             dev_titles() {
                 return [
                     'Frontend Developer',
@@ -12964,20 +12946,16 @@ var $;
                 return this.all_titles().map((_, i) => this.All_item(i));
             }
             All_item_uri(index) {
-                const title = this.all_title(index);
-                return this.$.$mol_state_arg.link({ bog_prof_app: '', book: '\t', role: title, prompt: 'привет расскажи о себе' });
+                return this.$.$mol_state_arg.link({ '': '\t', prompt: 'привет расскажи о себе' });
             }
             Dev_item_uri(index) {
-                const title = this.dev_title(index);
-                return this.$.$mol_state_arg.link({ bog_prof_app: '', book: '\t', role: title, prompt: 'привет расскажи о себе' });
+                return this.$.$mol_state_arg.link({ '': '\t', prompt: 'привет расскажи о себе' });
             }
             Design_item_uri(index) {
-                const title = this.design_title(index);
-                return this.$.$mol_state_arg.link({ bog_prof_app: '', book: '\t', role: title, prompt: 'привет расскажи о себе' });
+                return this.$.$mol_state_arg.link({ '': '\t', prompt: 'привет расскажи о себе' });
             }
             Devops_item_uri(index) {
-                const title = this.devops_title(index);
-                return this.$.$mol_state_arg.link({ bog_prof_app: '', book: '\t', role: title, prompt: 'привет расскажи о себе' });
+                return this.$.$mol_state_arg.link({ '': '\t', prompt: 'привет расскажи о себе' });
             }
             All_item_open(index, event) {
                 event?.preventDefault();
@@ -12998,7 +12976,7 @@ var $;
                     this.$.$mol_state_session?.value('gd_profession', title);
                 }
                 catch { }
-                this.$.$mol_state_arg.go({ bog_prof_app: '', book: '\t', role: title, prompt: 'привет расскажи о себе' });
+                this.$.$mol_state_arg.go({ '': '\t', prompt: 'привет расскажи о себе' });
             }
             Dev_item_open(index, event) {
                 event?.preventDefault();
@@ -13019,7 +12997,7 @@ var $;
                     this.$.$mol_state_session?.value('gd_profession', title);
                 }
                 catch { }
-                this.$.$mol_state_arg.go({ bog_prof_app: '', book: '\t', role: title, prompt: 'привет расскажи о себе' });
+                this.$.$mol_state_arg.go({ '': '\t', prompt: 'привет расскажи о себе' });
             }
             Design_item_open(index, event) {
                 event?.preventDefault();
@@ -13040,7 +13018,7 @@ var $;
                     this.$.$mol_state_session?.value('gd_profession', title);
                 }
                 catch { }
-                this.$.$mol_state_arg.go({ bog_prof_app: '', book: '\t', role: title, prompt: 'привет расскажи о себе' });
+                this.$.$mol_state_arg.go({ '': '\t', prompt: 'привет расскажи о себе' });
             }
             Devops_item_open(index, event) {
                 event?.preventDefault();
@@ -13061,15 +13039,9 @@ var $;
                     this.$.$mol_state_session?.value('gd_profession', title);
                 }
                 catch { }
-                this.$.$mol_state_arg.go({ bog_prof_app: '', book: '\t', role: title, prompt: 'привет расскажи о себе' });
+                this.$.$mol_state_arg.go({ '': '\t', prompt: 'привет расскажи о себе' });
             }
         }
-        __decorate([
-            $mol_mem
-        ], $bog_prof_app_prof.prototype, "param", null);
-        __decorate([
-            $mol_mem
-        ], $bog_prof_app_prof.prototype, "spread", null);
         __decorate([
             $mol_mem
         ], $bog_prof_app_prof.prototype, "dev_titles", null);
@@ -14676,24 +14648,19 @@ var $;
     var $$;
     (function ($$) {
         class $bog_prof_app extends $.$bog_prof_app {
-            param() {
-                return 'book';
+            Bot() {
+                const obj = super.Bot();
+                obj.context = () => this.Bot_context();
+                return obj;
             }
-            spread(next) {
-                const param = this.param();
-                if (next !== undefined)
-                    return this.$.$mol_state_arg.value(param, next) ?? '';
-                const raw = this.$.$mol_state_arg.value(param) ?? '';
-                const head = String(raw).split('/')[0] || '';
-                return head;
+            Bot_context() {
+                const base = this.Bot().rules();
+                const prof = this.$.$mol_state_session.value('gd_profession');
+                return prof
+                    ? `${base}\nТы сейчас отвечаешь как ${prof}. Если пользователь поздоровается и попросит рассказать о себе, ответь кратко: \"я ${prof}\".`
+                    : base;
             }
         }
-        __decorate([
-            $mol_mem
-        ], $bog_prof_app.prototype, "param", null);
-        __decorate([
-            $mol_mem
-        ], $bog_prof_app.prototype, "spread", null);
         $$.$bog_prof_app = $bog_prof_app;
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));

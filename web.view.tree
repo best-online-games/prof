@@ -929,6 +929,7 @@ $mol_card $mol_list
 				<= status_text <= status \
 
 $bog_prof_app_prof $mol_book2_catalog
+	param \prof
 	menu_title @ \Professions
 	spreads *
 		\

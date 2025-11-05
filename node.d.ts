@@ -5609,6 +5609,7 @@ declare namespace $ {
 		devops_description( id: any): string
 		Devops_descr_view( id: any): $mol_text
 		Devops_link( id: any): $mol_link
+		param( ): string
 		menu_title( ): string
 		spreads( ): ({ 
 			'': ReturnType< $bog_prof_app_prof['All'] >,
@@ -5627,11 +5628,6 @@ declare namespace $ {
 //# sourceMappingURL=prof.view.tree.d.ts.map
 declare namespace $.$$ {
     class $bog_prof_app_prof extends $.$bog_prof_app_prof {
-        param(): string;
-        spread(next?: string): string;
-        arg(spread: string): {
-            [x: string]: string | null;
-        };
         dev_titles(): readonly string[];
         dev_title(id: number): string;
         Dev_gallery_items(): $.$mol_card[];
@@ -6682,8 +6678,8 @@ declare namespace $ {
 //# sourceMappingURL=app.view.tree.d.ts.map
 declare namespace $.$$ {
     class $bog_prof_app extends $.$bog_prof_app {
-        param(): string;
-        spread(next?: string): string;
+        Bot(): $.$gd_bot;
+        Bot_context(): string;
     }
 }
 

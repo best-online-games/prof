@@ -4575,14 +4575,14 @@ declare namespace $ {
             id: string;
             type: "function";
         }[] | undefined;
-        role: "assistant";
         content: string | null;
+        role: "assistant";
     } | {
+        content: string;
         role: "user";
-        content: string;
     } | {
-        role: "tool";
         content: string;
+        role: "tool";
         tool_call_id: string;
     }) => Readonly<{
         tool_calls?: readonly Readonly<{
@@ -4593,14 +4593,14 @@ declare namespace $ {
             id: string;
             type: "function";
         }>[] | undefined;
-        role: "assistant";
         content: string | null;
+        role: "assistant";
     }> | Readonly<{
+        content: string;
         role: "user";
-        content: string;
     }> | Readonly<{
-        role: "tool";
         content: string;
+        role: "tool";
         tool_call_id: string;
     }>) & {
         config: [((val: {
@@ -4612,8 +4612,8 @@ declare namespace $ {
                 id: string;
                 type: "function";
             }[] | undefined;
-            role: "assistant";
             content: string | null;
+            role: "assistant";
         }) => Readonly<{
             tool_calls?: readonly Readonly<{
                 function: Readonly<{
@@ -4623,8 +4623,8 @@ declare namespace $ {
                 id: string;
                 type: "function";
             }>[] | undefined;
-            role: "assistant";
             content: string | null;
+            role: "assistant";
         }>) & {
             config: {
                 role: ((val: "assistant") => "assistant") & {
@@ -4750,15 +4750,15 @@ declare namespace $ {
                     id: string;
                     type: "function";
                 }>[] | undefined;
-                role: "assistant";
                 content: string | null;
+                role: "assistant";
             }>;
         }, ((val: {
-            role: "user";
             content: string;
+            role: "user";
         }) => Readonly<{
-            role: "user";
             content: string;
+            role: "user";
         }>) & {
             config: {
                 role: ((val: "user") => "user") & {
@@ -4768,16 +4768,16 @@ declare namespace $ {
                 content: (val: string) => string;
             };
             Value: Readonly<{
-                role: "user";
                 content: string;
+                role: "user";
             }>;
         }, ((val: {
-            role: "tool";
             content: string;
+            role: "tool";
             tool_call_id: string;
         }) => Readonly<{
-            role: "tool";
             content: string;
+            role: "tool";
             tool_call_id: string;
         }>) & {
             config: {
@@ -4789,8 +4789,8 @@ declare namespace $ {
                 content: (val: string) => string;
             };
             Value: Readonly<{
-                role: "tool";
                 content: string;
+                role: "tool";
                 tool_call_id: string;
             }>;
         }];
@@ -4803,14 +4803,14 @@ declare namespace $ {
                 id: string;
                 type: "function";
             }>[] | undefined;
-            role: "assistant";
             content: string | null;
+            role: "assistant";
         }> | Readonly<{
+            content: string;
             role: "user";
-            content: string;
         }> | Readonly<{
-            role: "tool";
             content: string;
+            role: "tool";
             tool_call_id: string;
         }>;
     };
@@ -4846,14 +4846,14 @@ declare namespace $ {
                 id: string;
                 type: "function";
             }>[] | undefined;
-            role: "assistant";
             content: string | null;
+            role: "assistant";
         }> | Readonly<{
+            content: string;
             role: "user";
-            content: string;
         }> | Readonly<{
-            role: "tool";
             content: string;
+            role: "tool";
             tool_call_id: string;
         }>)[];
         fork(): $mol_github_model;
@@ -4873,8 +4873,8 @@ declare namespace $ {
                         id: string;
                         type: "function";
                     }>[] | undefined;
-                    role: "assistant";
                     content: string | null;
+                    role: "assistant";
                 }>;
             }>[];
         }>;
@@ -5470,6 +5470,7 @@ declare namespace $ {
 		devops_description( id: any): string
 		Devops_descr_view( id: any): $mol_text
 		Devops_link( id: any): $mol_link
+		param( ): string
 		menu_title( ): string
 		spreads( ): ({ 
 			'': ReturnType< $bog_prof_app_prof['All'] >,
@@ -5488,11 +5489,6 @@ declare namespace $ {
 //# sourceMappingURL=prof.view.tree.d.ts.map
 declare namespace $.$$ {
     class $bog_prof_app_prof extends $.$bog_prof_app_prof {
-        param(): string;
-        spread(next?: string): string;
-        arg(spread: string): {
-            [x: string]: string | null;
-        };
         dev_titles(): readonly string[];
         dev_title(id: number): string;
         Dev_gallery_items(): $.$mol_card[];
@@ -6543,8 +6539,8 @@ declare namespace $ {
 //# sourceMappingURL=app.view.tree.d.ts.map
 declare namespace $.$$ {
     class $bog_prof_app extends $.$bog_prof_app {
-        param(): string;
-        spread(next?: string): string;
+        Bot(): $.$gd_bot;
+        Bot_context(): string;
     }
 }
 
